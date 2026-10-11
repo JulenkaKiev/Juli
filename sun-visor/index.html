@@ -105,6 +105,7 @@
     .hero p.sub { color: #d6dae2; font-size: 16px; margin-bottom: 14px; }
     .ticks { list-style: none; display: grid; gap: 6px; margin-bottom: 18px; font-weight: 700; font-size: 15px; }
     .ticks li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 8px; }
+    .hero-img video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: #000; }
     .hero-img {
       position: relative; border-radius: var(--radius); overflow: hidden;
       border: 1px solid rgba(255,255,255,.12); margin-bottom: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.5);
@@ -351,8 +352,9 @@
       section { padding: 80px 0; }
       h2 { font-size: 36px; }
       .hero { padding: 64px 0 80px; }
-      .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-      .hero .hero-img { order: 2; margin: 0; }
+      .hero .wrap { display: grid; grid-template-columns: 1fr 420px; column-gap: 56px; align-items: start; }
+      .hero .hero-head, .hero .hero-body { grid-column: 1; }
+      .hero .hero-img { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
       .hero h1 { font-size: 48px; }
       .features { grid-template-columns: 1fr 1fr 1fr; }
       .money { grid-template-columns: repeat(4, 1fr); }
@@ -380,13 +382,17 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap">
-      <div class="hero-img">
-        <span class="sale">−33%</span>
-        <img src="img/visor.jpg" alt="Поляризований козирок SunShield, закріплений на штатному сонцезахисному козирку авто" width="589" height="464" />
-      </div>
-      <div>
+      <div class="hero-head">
         <span class="badge">☀️ Must-have для кожного водія</span>
-        <h1>Сонце більше <span class="accent">не сліпить</span> за кермом</h1>
+        <h1>Сонце б'є в очі? <span class="accent">Опустіть екран</span> за секунду</h1>
+      </div>
+      <div class="hero-img">
+        <video poster="img/visor.jpg" autoplay muted loop playsinline preload="auto" width="720" height="900" aria-label="Відео: як працює козирок SunShield">
+          <source src="video/sunshield.mp4" type="video/mp4" />
+          <source src="video/sunshield.webm" type="video/webm" />
+        </video>
+      </div>
+      <div class="hero-body">
         <p class="sub">SunShield одягається на ваш штатний козирок і подовжує його донизу та вбік поляризованим екраном. Сліпуче сонце й відблиски — під контролем.</p>
         <ul class="ticks">
           <li>Кріпиться за 1 хвилину — без свердління й клею</li>
@@ -831,7 +837,7 @@
       <p><b>SunShield</b> · Аксесуари для авто</p>
       <p>📞 +38 (000) 000-00-00 · Пн–Нд 9:00–20:00</p>
       <p>© 2026 Усі права захищено</p>
-      <p class="credits">Фото доріг: Unsplash (Unsplash License). Анімація та зображення «з SunShield» — ілюстрації. Розміри приблизні, ±1 см.</p>
+      <p class="credits">Фото доріг: Unsplash (Unsplash License). Відео, анімація та зображення «з SunShield» — ілюстрації. Розміри приблизні, ±1 см.</p>
     </div>
   </footer>
 
