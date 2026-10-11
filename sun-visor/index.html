@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SunShield — поляризований козирок для авто</title>
+  <meta name="description" content="Поляризований сонцезахисний козирок-подовжувач для авто. Захищає від сліпучого сонця та фар. Доставка Новою Поштою по всій Україні, оплата при отриманні." />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-2: #171a21;
+      --card: #1d2129;
+      --line: #2a2f3a;
+      --text: #f3f4f6;
+      --muted: #9aa3b2;
+      --accent: #ffb020;
+      --accent-2: #ff7a00;
+      --ok: #3ddc84;
+      --radius: 18px;
+      --gutter: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 84px; /* місце під липку кнопку */
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .wrap { width: 100%; max-width: 560px; margin: 0 auto; padding: 0 var(--gutter); }
+    section { padding: 48px 0; }
+    h2 { font-size: 26px; line-height: 1.2; font-weight: 800; margin-bottom: 8px; }
+    .lead { color: var(--muted); margin-bottom: 24px; }
+    .accent { color: var(--accent); }
+
+    /* ---------- Кнопки ---------- */
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; min-height: 56px; padding: 0 20px;
+      border: 0; border-radius: 14px; cursor: pointer;
+      font-family: inherit; font-size: 17px; font-weight: 800; line-height: 1; text-decoration: none;
+      color: #1a1200;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(255, 140, 0, .35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:active { transform: scale(.98); box-shadow: 0 4px 12px rgba(255, 140, 0, .3); }
+
+    /* ---------- Шапка ---------- */
+    .top {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(15, 17, 21, .85);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font-weight: 800; font-size: 18px; letter-spacing: .3px; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .top a.phone { font-weight: 700; font-size: 14px; color: var(--muted); text-decoration: none; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-top: 20px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255, 176, 32, .12); color: var(--accent);
+      border: 1px solid rgba(255, 176, 32, .35);
+      font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .hero h1 { font-size: 30px; line-height: 1.15; font-weight: 800; margin-bottom: 12px; }
+    .hero p.sub { color: var(--muted); font-size: 16px; margin-bottom: 20px; }
+    .hero-img {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--line); margin-bottom: 20px;
+    }
+    .hero-img .sale {
+      position: absolute; top: 12px; left: 12px;
+      background: #ff3b3b; color: #fff; font-weight: 800; font-size: 14px;
+      padding: 6px 10px; border-radius: 10px;
+    }
+    .price-row { display: flex; align-items: flex-end; gap: 12px; margin-bottom: 6px; }
+    .price { font-size: 40px; font-weight: 800; line-height: 1; }
+    .price small { font-size: 20px; }
+    .old { color: var(--muted); text-decoration: line-through; font-size: 18px; margin-bottom: 4px; }
+    .price-note { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    .mini-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+    .mini-points div {
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 6px; text-align: center; font-size: 12px; color: var(--muted); font-weight: 600;
+    }
+    .mini-points b { display: block; font-size: 20px; margin-bottom: 2px; }
+
+    /* ---------- Проблема ---------- */
+    .problem { background: var(--bg-2); }
+    .pain { display: grid; gap: 12px; }
+    .pain div {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--card); border-radius: 14px; padding: 14px; border: 1px solid var(--line);
+    }
+    .pain i { font-style: normal; font-size: 22px; line-height: 1; }
+
+    /* ---------- До / після ---------- */
+    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); user-select: none; touch-action: pan-y; }
+    .compare img { width: 100%; }
+    .compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }
+    .compare .before-img { filter: brightness(1.55) contrast(.7) saturate(.6); }
+    .compare .handle {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff;
+      transform: translateX(-50%); pointer-events: none;
+    }
+    .compare .handle::after {
+      content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #111;
+      display: grid; place-items: center; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    }
+    .compare .tag {
+      position: absolute; bottom: 10px; font-size: 12px; font-weight: 700;
+      background: rgba(0,0,0,.6); padding: 4px 8px; border-radius: 8px;
+    }
+    .compare .tag.l { left: 10px; } .compare .tag.r { right: 10px; }
+    .hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+    /* ---------- Переваги ---------- */
+    .features { display: grid; gap: 12px; }
+    .feature {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 18px; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start;
+    }
+    .feature .ico {
+      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(255, 176, 32, .12); font-size: 24px;
+    }
+    .feature h3 { font-size: 17px; margin-bottom: 4px; }
+    .feature p { color: var(--muted); font-size: 14px; }
+
+    /* ---------- Як встановити ---------- */
+    .steps { counter-reset: s; display: grid; gap: 12px; }
+    .step { display: flex; gap: 14px; align-items: center; }
+    .step::before {
+      counter-increment: s; content: counter(s);
+      flex: 0 0 40px; height: 40px; border-radius: 50%;
+      display: grid; place-items: center; font-weight: 800;
+      background: var(--accent); color: #1a1200;
+    }
+
+    /* ---------- Характеристики ---------- */
+    .specs { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .specs div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 16px; font-size: 15px; }
+    .specs div + div { border-top: 1px solid var(--line); }
+    .specs span:first-child { color: var(--muted); }
+    .specs span:last-child { text-align: right; font-weight: 600; }
+
+    /* ---------- Доставка ---------- */
+    .delivery { background: var(--bg-2); }
+    .del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .del-grid div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .del-grid i { font-style: normal; font-size: 26px; display: block; margin-bottom: 8px; }
+    .del-grid b { display: block; font-size: 15px; margin-bottom: 2px; }
+    .del-grid span { color: var(--muted); font-size: 13px; }
+
+    /* ---------- Форма замовлення ---------- */
+    .order-card {
+      background: linear-gradient(180deg, #232733, var(--card));
+      border: 1px solid rgba(255, 176, 32, .35); border-radius: 22px; padding: 22px 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+    .qty { display: grid; gap: 10px; margin-bottom: 18px; }
+    .qty label {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+    .qty input { position: absolute; opacity: 0; pointer-events: none; }
+    .qty label:has(input:checked) { border-color: var(--accent); background: rgba(255, 176, 32, .08); }
+    .qty .name { font-weight: 700; }
+    .qty .name small { display: block; color: var(--ok); font-size: 12px; font-weight: 700; }
+    .qty .p { font-weight: 800; font-size: 18px; white-space: nowrap; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+    .field input {
+      width: 100%; height: 54px; padding: 0 16px; border-radius: 14px;
+      border: 1px solid var(--line); background: var(--bg); color: var(--text);
+      font-family: inherit; font-size: 16px; font-weight: 600; outline: none;
+    }
+    .field input:focus { border-color: var(--accent); }
+    .field input.err { border-color: #ff4d4d; }
+    .total { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; font-weight: 700; }
+    .total b { font-size: 24px; color: var(--accent); }
+    .secure { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+    .thanks { display: none; text-align: center; padding: 20px 0; }
+    .thanks .big { font-size: 56px; margin-bottom: 10px; }
+    .thanks h3 { font-size: 22px; margin-bottom: 6px; }
+    .thanks p { color: var(--muted); }
+
+    /* ---------- FAQ ---------- */
+    .faq details {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      margin-bottom: 10px; overflow: hidden;
+    }
+    .faq summary {
+      list-style: none; cursor: pointer; padding: 16px; font-weight: 700;
+      display: flex; justify-content: space-between; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--accent); font-size: 22px; line-height: 1; transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 16px 16px; color: var(--muted); font-size: 15px; }
+
+    /* ---------- Футер ---------- */
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 13px; text-align: center; }
+    footer p + p { margin-top: 6px; }
+
+    /* ---------- Липка кнопка (мобільна) ---------- */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+      background: rgba(15, 17, 21, .92);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      transition: transform .25s ease;
+    }
+    .sticky-cta.hide { transform: translateY(110%); }
+    .sticky-cta .inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+    .sticky-cta .sp { flex: 0 0 auto; line-height: 1.1; }
+    .sticky-cta .sp b { font-size: 22px; display: block; }
+    .sticky-cta .sp s { color: var(--muted); font-size: 13px; }
+    .sticky-cta .btn { min-height: 52px; }
+
+    /* ---------- Десктоп ---------- */
+    @media (min-width: 900px) {
+      body { padding-bottom: 0; }
+      .sticky-cta { display: none; }
+      .wrap { max-width: 1040px; }
+      section { padding: 72px 0; }
+      h2 { font-size: 34px; }
+      .hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+      .hero .hero-img { order: 2; margin: 0; }
+      .hero h1 { font-size: 44px; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .pain { grid-template-columns: repeat(3, 1fr); }
+      .del-grid { grid-template-columns: repeat(4, 1fr); }
+      .narrow { max-width: 560px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <a href="#" class="logo">Sun<span>Shield</span></a>
+      <a href="tel:+380000000000" class="phone">📞 +38 (000) 000-00-00</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-img">
+        <span class="sale">−45%</span>
+        <img src="img/visor.jpg" alt="Поляризований козирок-подовжувач, встановлений на сонцезахисний щиток авто" width="589" height="464" />
+      </div>
+      <div>
+        <span class="badge">☀️ Хіт сезону для водіїв</span>
+        <h1>Сонце більше <span class="accent">не сліпить</span> за кермом</h1>
+        <p class="sub">Поляризований козирок-подовжувач кріпиться на штатний щиток за 10 секунд і закриває дорогу від сліпучого сонця та відблисків.</p>
+        <div class="price-row">
+          <div class="price"><span data-price-one>499</span> <small>грн</small></div>
+          <div class="old"><span data-price-old>899</span> грн</div>
+        </div>
+        <p class="price-note">Оплата при отриманні · Доставка Новою Поштою</p>
+        <a href="#order" class="btn">Замовити зі знижкою →</a>
+        <div class="mini-points">
+          <div><b>🕶️</b>Поляризація</div>
+          <div><b>🚗</b>Для будь-якого авто</div>
+          <div><b>⚡</b>Монтаж 10 сек</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОБЛЕМА -->
+  <section class="problem">
+    <div class="wrap">
+      <h2>Знайомо?</h2>
+      <p class="lead">Штатний козирок не рятує, коли сонце низько над дорогою.</p>
+      <div class="pain">
+        <div><i>😣</i><span>Вранці та ввечері сонце б'є просто в очі — доводиться мружитися й скидати швидкість.</span></div>
+        <div><i>🌫️</i><span>Відблиски від мокрої дороги та капота «засвічують» усе довкола.</span></div>
+        <div><i>⚠️</i><span>Кілька секунд «засліплення» на трасі — це реальний ризик аварії.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДО / ПІСЛЯ -->
+  <section>
+    <div class="wrap narrow">
+      <h2>Різниця <span class="accent">очевидна</span></h2>
+      <p class="lead">Поляризаційний фільтр гасить відблиски, а дорога стає чіткою та контрастною.</p>
+      <div class="compare" id="compare">
+        <img src="img/visor.jpg" class="before-img" alt="Без козирка" />
+        <div class="after"><img src="img/visor.jpg" alt="З поляризованим козирком" /></div>
+        <div class="handle" id="handle"></div>
+        <span class="tag l">Без козирка</span>
+        <span class="tag r">З SunShield</span>
+      </div>
+      <p class="hint">Потягніть повзунок 👆</p>
+    </div>
+  </section>
+
+  <!-- ПЕРЕВАГИ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Чому обирають SunShield</h2>
+      <p class="lead">Простий аксесуар, який робить кожну поїздку комфортнішою та безпечнішою.</p>
+      <div class="features">
+        <div class="feature"><div class="ico">🕶️</div><div><h3>Поляризований екран</h3><p>Прибирає сліпучі відблиски від сонця, мокрого асфальту та капота.</p></div></div>
+        <div class="feature"><div class="ico">↔️</div><div><h3>Висувна конструкція</h3><p>Екран висувається вниз саме там, де потрібно, і ховається, коли сонця немає.</p></div></div>
+        <div class="feature"><div class="ico">🚙</div><div><h3>Універсальне кріплення</h3><p>Підходить для легкових авто, кросоверів і мінівенів — тримається на штатному щитку.</p></div></div>
+        <div class="feature"><div class="ico">👜</div><div><h3>Кишеня на блискавці</h3><p>Документи, права, карти та чеки завжди під рукою і не загубляться.</p></div></div>
+        <div class="feature"><div class="ico">✨</div><div><h3>Стильний вигляд</h3><p>Чорна екошкіра гармонійно виглядає в салоні будь-якого автомобіля.</p></div></div>
+        <div class="feature"><div class="ico">🛠️</div><div><h3>Без інструментів</h3><p>Нічого не треба свердлити чи клеїти — просто одягніть на козирок.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЯК ВСТАНОВИТИ -->
+  <section class="problem">
+    <div class="wrap narrow">
+      <h2>Встановлення за 10 секунд</h2>
+      <p class="lead">Впорається будь-хто.</p>
+      <div class="steps">
+        <div class="step">Опустіть штатний сонцезахисний козирок.</div>
+        <div class="step">Одягніть SunShield на козирок і затягніть ремінці.</div>
+        <div class="step">Висуньте поляризований екран — і в дорогу!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ХАРАКТЕРИСТИКИ -->
+  <section>
+    <div class="wrap narrow">
+      <h2>Характеристики</h2>
+      <p class="lead">Усе, що потрібно знати перед покупкою.</p>
+      <div class="specs">
+        <div><span>Тип</span><span>Козирок-подовжувач</span></div>
+        <div><span>Екран</span><span>Поляризований, тонований</span></div>
+        <div><span>Корпус</span><span>Екошкіра, чорний</span></div>
+        <div><span>Кріплення</span><span>На штатний козирок</span></div>
+        <div><span>Додатково</span><span>Кишеня на блискавці</span></div>
+        <div><span>Сумісність</span><span>Більшість авто</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОСТАВКА -->
+  <section class="delivery">
+    <div class="wrap">
+      <h2>Доставка та оплата</h2>
+      <p class="lead">Без передоплати — платите, лише коли отримали й оглянули товар.</p>
+      <div class="del-grid">
+        <div><i>📦</i><b>Нова Пошта</b><span>Відправка 1–2 дні</span></div>
+        <div><i>💵</i><b>Накладений платіж</b><span>Оплата при отриманні</span></div>
+        <div><i>🔍</i><b>Огляд на пошті</b><span>Перевірте перед оплатою</span></div>
+        <div><i>↩️</i><b>14 днів</b><span>На обмін і повернення</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМА -->
+  <section id="order">
+    <div class="wrap narrow">
+      <h2>Оформіть <span class="accent">замовлення</span></h2>
+      <p class="lead">Залиште контакти — менеджер зателефонує для підтвердження.</p>
+
+      <div class="order-card">
+        <form id="orderForm" novalidate>
+          <div class="qty" id="qty">
+            <label><input type="radio" name="qty" value="1" checked />
+              <span class="name">1 козирок</span><span class="p"><span data-bundle="1"></span> грн</span></label>
+            <label><input type="radio" name="qty" value="2" />
+              <span class="name">2 козирки<small>Для двох авто або водія й пасажира</small></span><span class="p"><span data-bundle="2"></span> грн</span></label>
+            <label><input type="radio" name="qty" value="3" />
+              <span class="name">3 козирки<small>Найвигідніше</small></span><span class="p"><span data-bundle="3"></span> грн</span></label>
+          </div>
+
+          <div class="field">
+            <label for="name">Ваше ім'я</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Олена" required />
+          </div>
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required />
+          </div>
+
+          <div class="total"><span>До сплати:</span><b><span id="total"></span> грн</b></div>
+          <button type="submit" class="btn">Замовити</button>
+          <p class="secure">🔒 Ваші дані не передаються третім особам</p>
+        </form>
+
+        <div class="thanks" id="thanks">
+          <div class="big">✅</div>
+          <h3>Дякуємо за замовлення!</h3>
+          <p>Ми зателефонуємо вам найближчим часом для підтвердження.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" style="padding-top:0">
+    <div class="wrap narrow">
+      <h2>Питання та відповіді</h2>
+      <p class="lead">&nbsp;</p>
+      <details><summary>Чи підійде до мого авто?</summary><p>Так, козирок кріпиться на штатний сонцезахисний щиток і підходить для більшості легкових авто, кросоверів і мінівенів.</p></details>
+      <details><summary>Чи не обмежує він огляд?</summary><p>Екран прозорий і лише приглушує яскраве світло та відблиски. Коли сонця немає — його можна сховати.</p></details>
+      <details><summary>Як оплатити?</summary><p>Оплата при отриманні на відділенні Нової Пошти. Ви можете оглянути товар перед оплатою.</p></details>
+      <details><summary>Скільки триває доставка?</summary><p>Відправляємо протягом 1–2 робочих днів, доставка Новою Поштою зазвичай займає 1–3 дні.</p></details>
+      <details><summary>Чи можна повернути?</summary><p>Так, протягом 14 днів згідно із законом «Про захист прав споживачів».</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p><b>SunShield</b> · Аксесуари для авто</p>
+      <p>📞 +38 (000) 000-00-00 · Пн–Нд 9:00–20:00</p>
+      <p>© 2026 Усі права захищено</p>
+    </div>
+  </footer>
+
+  <!-- Липка кнопка для мобільних -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="inner">
+      <div class="sp"><b><span data-price-one>499</span> грн</b><s><span data-price-old>899</span> грн</s></div>
+      <a href="#order" class="btn">Замовити</a>
+    </div>
+  </div>
+
+  <script>
+    // ===== Ціни (змінюйте тут) =====
+    const PRICES = { old: 899, bundles: { 1: 499, 2: 899, 3: 1199 } };
+
+    document.querySelectorAll('[data-price-one]').forEach(el => el.textContent = PRICES.bundles[1]);
+    document.querySelectorAll('[data-price-old]').forEach(el => el.textContent = PRICES.old);
+    document.querySelectorAll('[data-bundle]').forEach(el => el.textContent = PRICES.bundles[el.dataset.bundle]);
+
+    const totalEl = document.getElementById('total');
+    const updateTotal = () => {
+      const q = document.querySelector('input[name="qty"]:checked').value;
+      totalEl.textContent = PRICES.bundles[q];
+    };
+    document.getElementById('qty').addEventListener('change', updateTotal);
+    updateTotal();
+
+    // ===== Маска телефону +380 =====
+    const phone = document.getElementById('phone');
+    phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+380 '; });
+    phone.addEventListener('input', () => {
+      let d = phone.value.replace(/\D/g, '');
+      if (!d.startsWith('380')) d = '380' + d.replace(/^3?8?0?/, '');
+      d = d.slice(0, 12);
+      const p = d.slice(3);
+      let out = '+380';
+      if (p.length) out += ' ' + p.slice(0, 2);
+      if (p.length > 2) out += ' ' + p.slice(2, 5);
+      if (p.length > 5) out += ' ' + p.slice(5, 7);
+      if (p.length > 7) out += ' ' + p.slice(7, 9);
+      phone.value = out;
+    });
+
+    // ===== Відправка форми =====
+    // TODO: підключіть відправку (Telegram-бот, CRM, Google Sheets тощо) у функції sendOrder.
+    async function sendOrder(data) {
+      console.log('Нове замовлення:', data);
+    }
+
+    document.getElementById('orderForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const okName = name.value.trim().length >= 2;
+      const okPhone = phone.value.replace(/\D/g, '').length === 12;
+      name.classList.toggle('err', !okName);
+      phone.classList.toggle('err', !okPhone);
+      if (!okName || !okPhone) return;
+
+      const qty = document.querySelector('input[name="qty"]:checked').value;
+      await sendOrder({ name: name.value.trim(), phone: phone.value, qty, total: PRICES.bundles[qty] });
+      e.target.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+    });
+
+    // ===== Слайдер «до / після» =====
+    const cmp = document.getElementById('compare');
+    const after = cmp.querySelector('.after');
+    const handle = document.getElementById('handle');
+    const setPos = (clientX) => {
+      const r = cmp.getBoundingClientRect();
+      const pct = Math.min(100, Math.max(0, (clientX - r.left) / r.width * 100));
+      after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = pct + '%';
+    };
+    let drag = false;
+    cmp.addEventListener('pointerdown', e => { drag = true; setPos(e.clientX); });
+    window.addEventListener('pointermove', e => { if (drag) setPos(e.clientX); });
+    window.addEventListener('pointerup', () => drag = false);
+
+    // ===== Ховати липку кнопку, коли видно форму =====
+    const sticky = document.getElementById('stickyCta');
+    new IntersectionObserver(([en]) => sticky.classList.toggle('hide', en.isIntersecting), { threshold: 0.1 })
+      .observe(document.getElementById('order'));
+  </script>
+</body>
+</html>
