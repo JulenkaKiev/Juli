@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SunShield — поляризований козирок для авто</title>
-  <meta name="description" content="Поляризований сонцезахисний козирок-подовжувач для авто. Захищає від сліпучого сонця та фар. Доставка Новою Поштою по всій Україні, оплата при отриманні." />
+  <title>SunShield — поляризований козирок для авто | 799 грн</title>
+  <meta name="description" content="Поляризований козирок-подовжувач для авто: сонце більше не сліпить. Встановлення за 10 секунд. Доставка Новою Поштою, оплата при отриманні. 799 грн замість 1199." />
   <meta name="theme-color" content="#0f1115" />
+  <meta property="og:title" content="SunShield — сонце більше не сліпить за кермом" />
+  <meta property="og:description" content="Поляризований козирок для авто. 799 грн замість 1199. Оплата при отриманні." />
+  <meta property="og:image" content="img/visor.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0f1115;
-      --bg-2: #171a21;
+      --bg-2: #161920;
       --card: #1d2129;
       --line: #2a2f3a;
       --text: #f3f4f6;
@@ -20,6 +23,7 @@
       --accent: #ffb020;
       --accent-2: #ff7a00;
       --ok: #3ddc84;
+      --red: #ff4d4d;
       --radius: 18px;
       --gutter: 16px;
     }
@@ -32,101 +36,159 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 84px; /* місце під липку кнопку */
+      overflow-x: hidden;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
     .wrap { width: 100%; max-width: 560px; margin: 0 auto; padding: 0 var(--gutter); }
-    section { padding: 48px 0; }
-    h2 { font-size: 26px; line-height: 1.2; font-weight: 800; margin-bottom: 8px; }
-    .lead { color: var(--muted); margin-bottom: 24px; }
+    section { padding: 52px 0; }
+    h2 { font-size: 27px; line-height: 1.2; font-weight: 800; margin-bottom: 10px; }
+    .lead { color: var(--muted); margin-bottom: 24px; font-size: 16px; }
     .accent { color: var(--accent); }
+    .eyebrow { display: block; color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+    .alt { background: var(--bg-2); }
+    .split > * + * { margin-top: 24px; }
+
+    /* Плавна поява блоків */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
     /* ---------- Кнопки ---------- */
     .btn {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; min-height: 56px; padding: 0 20px;
+      width: 100%; min-height: 58px; padding: 0 20px;
       border: 0; border-radius: 14px; cursor: pointer;
-      font-family: inherit; font-size: 17px; font-weight: 800; line-height: 1; text-decoration: none;
+      font-family: inherit; font-size: 17px; font-weight: 800; line-height: 1.1; text-decoration: none; text-align: center;
       color: #1a1200;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 8px 24px rgba(255, 140, 0, .35);
       transition: transform .15s ease, box-shadow .15s ease;
     }
-    .btn:active { transform: scale(.98); box-shadow: 0 4px 12px rgba(255, 140, 0, .3); }
+    .btn:active { transform: scale(.98); }
+    .btn.pulse { animation: pulse 2.2s infinite; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(255, 140, 0, .35), 0 0 0 0 rgba(255, 176, 32, .55); }
+      60% { box-shadow: 0 8px 24px rgba(255, 140, 0, .35), 0 0 0 14px rgba(255, 176, 32, 0); }
+    }
 
-    /* ---------- Шапка ---------- */
+    /* ---------- Промо-рядок і шапка ---------- */
+    .promo {
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      color: #1a1200; text-align: center; font-size: 13px; font-weight: 800; padding: 8px var(--gutter);
+    }
     .top {
       position: sticky; top: 0; z-index: 20;
-      background: rgba(15, 17, 21, .85);
+      background: rgba(15, 17, 21, .88);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
     .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-    .logo { font-weight: 800; font-size: 18px; letter-spacing: .3px; text-decoration: none; }
+    .logo { font-weight: 800; font-size: 19px; letter-spacing: .3px; text-decoration: none; }
     .logo span { color: var(--accent); }
-    .top a.phone { font-weight: 700; font-size: 14px; color: var(--muted); text-decoration: none; }
+    .top .mini-btn {
+      font-size: 14px; font-weight: 800; text-decoration: none; color: #1a1200;
+      background: var(--accent); padding: 9px 14px; border-radius: 10px;
+    }
 
     /* ---------- Hero ---------- */
-    .hero { padding-top: 20px; }
+    .hero { position: relative; padding: 28px 0 40px; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -2;
+      background: url("img/drive-sun.jpg") center/cover no-repeat;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(180deg, rgba(15,17,21,.55) 0%, rgba(15,17,21,.85) 45%, var(--bg) 100%);
+    }
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255, 176, 32, .12); color: var(--accent);
-      border: 1px solid rgba(255, 176, 32, .35);
-      font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px;
+      background: rgba(255, 176, 32, .14); color: var(--accent);
+      border: 1px solid rgba(255, 176, 32, .4);
+      font-size: 13px; font-weight: 800; padding: 6px 12px; border-radius: 999px;
       margin-bottom: 14px;
     }
-    .hero h1 { font-size: 30px; line-height: 1.15; font-weight: 800; margin-bottom: 12px; }
-    .hero p.sub { color: var(--muted); font-size: 16px; margin-bottom: 20px; }
+    .hero h1 { font-size: 33px; line-height: 1.12; font-weight: 800; margin-bottom: 12px; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
+    .hero p.sub { color: #d6dae2; font-size: 16px; margin-bottom: 20px; }
     .hero-img {
       position: relative; border-radius: var(--radius); overflow: hidden;
-      border: 1px solid var(--line); margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,.12); margin-bottom: 22px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.5);
     }
-    .hero-img .sale {
+    .sale {
       position: absolute; top: 12px; left: 12px;
-      background: #ff3b3b; color: #fff; font-weight: 800; font-size: 14px;
-      padding: 6px 10px; border-radius: 10px;
+      background: var(--red); color: #fff; font-weight: 800; font-size: 15px;
+      padding: 6px 10px; border-radius: 10px; transform: rotate(-4deg);
     }
-    .price-row { display: flex; align-items: flex-end; gap: 12px; margin-bottom: 6px; }
-    .price { font-size: 40px; font-weight: 800; line-height: 1; }
+    .price-box {
+      background: rgba(29, 33, 41, .85); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .price-row { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+    .price { font-size: 44px; font-weight: 800; line-height: 1; color: var(--accent); }
     .price small { font-size: 20px; }
-    .old { color: var(--muted); text-decoration: line-through; font-size: 18px; margin-bottom: 4px; }
-    .price-note { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
-    .mini-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
-    .mini-points div {
-      background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px;
-      padding: 10px 6px; text-align: center; font-size: 12px; color: var(--muted); font-weight: 600;
+    .old { color: var(--muted); text-decoration: line-through; font-size: 19px; margin-bottom: 5px; }
+    .save { background: rgba(61, 220, 132, .14); color: var(--ok); font-weight: 800; font-size: 13px; padding: 4px 8px; border-radius: 8px; margin-bottom: 6px; }
+    .price-note { color: var(--muted); font-size: 14px; margin-top: 8px; }
+    .trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+    .trust div {
+      background: rgba(22, 25, 32, .9); border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 6px; text-align: center; font-size: 12px; color: var(--muted); font-weight: 700; line-height: 1.3;
     }
-    .mini-points b { display: block; font-size: 20px; margin-bottom: 2px; }
+    .trust b { display: block; font-size: 20px; margin-bottom: 4px; }
+
+    /* ---------- Фото-банер ---------- */
+    .photo-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+    .photo-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+    .photo-card .cap {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.85));
+      font-weight: 700; font-size: 15px;
+    }
 
     /* ---------- Проблема ---------- */
-    .problem { background: var(--bg-2); }
-    .pain { display: grid; gap: 12px; }
+    .pain { display: grid; gap: 10px; margin-top: 16px; }
     .pain div {
       display: flex; gap: 12px; align-items: flex-start;
-      background: var(--card); border-radius: 14px; padding: 14px; border: 1px solid var(--line);
+      background: var(--card); border-radius: 14px; padding: 14px; border: 1px solid var(--line); font-size: 15px;
     }
-    .pain i { font-style: normal; font-size: 22px; line-height: 1; }
+    .pain i { font-style: normal; font-size: 22px; line-height: 1.1; }
 
     /* ---------- До / після ---------- */
-    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); user-select: none; touch-action: pan-y; }
-    .compare img { width: 100%; }
+    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); user-select: none; -webkit-user-select: none; touch-action: pan-y; cursor: ew-resize; }
+    .compare img { width: 100%; pointer-events: none; }
     .compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }
-    .compare .before-img { filter: brightness(1.55) contrast(.7) saturate(.6); }
     .compare .handle {
       position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff;
       transform: translateX(-50%); pointer-events: none;
     }
     .compare .handle::after {
       content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #111;
+      width: 42px; height: 42px; border-radius: 50%; background: #fff; color: #111;
       display: grid; place-items: center; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,.4);
     }
     .compare .tag {
-      position: absolute; bottom: 10px; font-size: 12px; font-weight: 700;
-      background: rgba(0,0,0,.6); padding: 4px 8px; border-radius: 8px;
+      position: absolute; top: 10px; font-size: 12px; font-weight: 800;
+      background: rgba(0,0,0,.65); padding: 5px 9px; border-radius: 8px;
     }
-    .compare .tag.l { left: 10px; } .compare .tag.r { right: 10px; }
+    .compare .tag.l { left: 10px; } .compare .tag.r { right: 10px; color: var(--accent); }
     .hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+    /* ---------- Сценарії (горизонтальна прокрутка) ---------- */
+    .scroller {
+      display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px;
+      overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--gutter) 8px;
+      margin: 0 calc(var(--gutter) * -1); scrollbar-width: none;
+    }
+    .scroller::-webkit-scrollbar { display: none; }
+    .scene { scroll-snap-align: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .scene img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .scene div { padding: 14px; }
+    .scene h3 { font-size: 17px; margin-bottom: 4px; }
+    .scene p { color: var(--muted); font-size: 14px; }
+    .dots { display: flex; justify-content: center; gap: 6px; margin-top: 12px; }
+    .dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--line); transition: background .2s, width .2s; }
+    .dots span.on { background: var(--accent); width: 20px; border-radius: 4px; }
 
     /* ---------- Переваги ---------- */
     .features { display: grid; gap: 12px; }
@@ -141,15 +203,49 @@
     .feature h3 { font-size: 17px; margin-bottom: 4px; }
     .feature p { color: var(--muted); font-size: 14px; }
 
-    /* ---------- Як встановити ---------- */
-    .steps { counter-reset: s; display: grid; gap: 12px; }
-    .step { display: flex; gap: 14px; align-items: center; }
+    /* ---------- Деталі товару ---------- */
+    .details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .details figure { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .details figure.wide { grid-column: 1 / -1; }
+    .details img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    .details figure.wide img { aspect-ratio: auto; }
+    .details figcaption { padding: 10px 12px; font-size: 13px; font-weight: 700; }
+    .details figcaption span { display: block; color: var(--muted); font-weight: 600; }
+
+    /* ---------- Порівняння ---------- */
+    .vs { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 14px; }
+    .vs th, .vs td { padding: 12px 8px; text-align: center; border-bottom: 1px solid var(--line); }
+    .vs tr:last-child td { border-bottom: 0; }
+    .vs th { font-size: 12px; color: var(--muted); font-weight: 700; vertical-align: bottom; }
+    .vs th.us { color: var(--accent); font-size: 13px; }
+    .vs td:first-child, .vs th:first-child { text-align: left; padding-left: 14px; }
+    .vs td.us { background: rgba(255, 176, 32, .08); font-weight: 800; }
+    .yes { color: var(--ok); font-weight: 800; }
+    .no { color: var(--red); font-weight: 800; }
+
+    /* ---------- Встановлення ---------- */
+    .steps { counter-reset: s; display: grid; gap: 14px; }
+    .step { display: flex; gap: 14px; align-items: center; font-size: 16px; }
     .step::before {
       counter-increment: s; content: counter(s);
-      flex: 0 0 40px; height: 40px; border-radius: 50%;
+      flex: 0 0 42px; height: 42px; border-radius: 50%;
       display: grid; place-items: center; font-weight: 800;
       background: var(--accent); color: #1a1200;
     }
+
+    /* ---------- Подарунок ---------- */
+    .gift {
+      background: linear-gradient(135deg, #2a2112, #1d2129 60%);
+      border: 1px solid rgba(255, 176, 32, .35); border-radius: 22px; padding: 22px 18px;
+    }
+    .gift .big { font-size: 44px; line-height: 1; margin-bottom: 10px; }
+    .gift ul { list-style: none; display: grid; gap: 8px; margin: 14px 0 18px; }
+    .gift li::before { content: "✓ "; color: var(--ok); font-weight: 800; }
+
+    /* ---------- Ціна за день ---------- */
+    .perday { text-align: center; }
+    .perday .num { font-size: 56px; font-weight: 800; color: var(--accent); line-height: 1; }
+    .perday .num small { font-size: 22px; }
 
     /* ---------- Характеристики ---------- */
     .specs { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -158,42 +254,57 @@
     .specs span:first-child { color: var(--muted); }
     .specs span:last-child { text-align: right; font-weight: 600; }
 
-    /* ---------- Доставка ---------- */
-    .delivery { background: var(--bg-2); }
+    /* ---------- Доставка й гарантії ---------- */
     .del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .del-grid div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
     .del-grid i { font-style: normal; font-size: 26px; display: block; margin-bottom: 8px; }
     .del-grid b { display: block; font-size: 15px; margin-bottom: 2px; }
     .del-grid span { color: var(--muted); font-size: 13px; }
+    .guarantee {
+      margin-top: 14px; display: flex; gap: 14px; align-items: center;
+      background: rgba(61, 220, 132, .08); border: 1px solid rgba(61, 220, 132, .35);
+      border-radius: var(--radius); padding: 16px;
+    }
+    .guarantee .seal { flex: 0 0 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--ok); color: #06210f; font-weight: 800; font-size: 14px; text-align: center; line-height: 1; }
+    .guarantee p { font-size: 14px; color: #cfe9d9; }
 
     /* ---------- Форма замовлення ---------- */
     .order-card {
-      background: linear-gradient(180deg, #232733, var(--card));
-      border: 1px solid rgba(255, 176, 32, .35); border-radius: 22px; padding: 22px 18px;
+      background: linear-gradient(180deg, #242835, var(--card));
+      border: 1px solid rgba(255, 176, 32, .4); border-radius: 22px; padding: 22px 18px;
       box-shadow: 0 20px 50px rgba(0,0,0,.35);
     }
+    .order-head { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
+    .order-head img { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
+    .order-head b { display: block; font-size: 16px; line-height: 1.3; }
+    .order-head span { color: var(--muted); font-size: 13px; }
     .qty { display: grid; gap: 10px; margin-bottom: 18px; }
     .qty label {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      position: relative; display: flex; align-items: center; justify-content: space-between; gap: 10px;
       border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer;
       transition: border-color .15s, background .15s;
     }
     .qty input { position: absolute; opacity: 0; pointer-events: none; }
-    .qty label:has(input:checked) { border-color: var(--accent); background: rgba(255, 176, 32, .08); }
-    .qty .name { font-weight: 700; }
+    .qty label.on { border-color: var(--accent); background: rgba(255, 176, 32, .08); }
+    .qty .name { font-weight: 800; }
     .qty .name small { display: block; color: var(--ok); font-size: 12px; font-weight: 700; }
-    .qty .p { font-weight: 800; font-size: 18px; white-space: nowrap; }
+    .qty .p { text-align: right; font-weight: 800; font-size: 18px; white-space: nowrap; line-height: 1.2; }
+    .qty .p s { display: block; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .qty .hit {
+      position: absolute; top: -10px; right: 12px; background: var(--red); color: #fff;
+      font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px;
+    }
     .field { margin-bottom: 12px; }
-    .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+    .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
     .field input {
-      width: 100%; height: 54px; padding: 0 16px; border-radius: 14px;
+      width: 100%; height: 56px; padding: 0 16px; border-radius: 14px;
       border: 1px solid var(--line); background: var(--bg); color: var(--text);
       font-family: inherit; font-size: 16px; font-weight: 600; outline: none;
     }
     .field input:focus { border-color: var(--accent); }
-    .field input.err { border-color: #ff4d4d; }
+    .field input.err { border-color: var(--red); }
     .total { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; font-weight: 700; }
-    .total b { font-size: 24px; color: var(--accent); }
+    .total b { font-size: 26px; color: var(--accent); }
     .secure { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
     .thanks { display: none; text-align: center; padding: 20px 0; }
     .thanks .big { font-size: 56px; margin-bottom: 10px; }
@@ -201,28 +312,28 @@
     .thanks p { color: var(--muted); }
 
     /* ---------- FAQ ---------- */
-    .faq details {
-      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-      margin-bottom: 10px; overflow: hidden;
-    }
-    .faq summary {
-      list-style: none; cursor: pointer; padding: 16px; font-weight: 700;
-      display: flex; justify-content: space-between; gap: 12px;
-    }
+    .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+    .faq summary { list-style: none; cursor: pointer; padding: 16px; font-weight: 700; display: flex; justify-content: space-between; gap: 12px; }
     .faq summary::-webkit-details-marker { display: none; }
     .faq summary::after { content: "+"; color: var(--accent); font-size: 22px; line-height: 1; transition: transform .2s; }
     .faq details[open] summary::after { transform: rotate(45deg); }
     .faq details p { padding: 0 16px 16px; color: var(--muted); font-size: 15px; }
 
-    /* ---------- Футер ---------- */
+    /* ---------- Фінальний заклик ---------- */
+    .final { position: relative; overflow: hidden; text-align: center; }
+    .final::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("img/morning.jpg") center/cover; }
+    .final::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, var(--bg), rgba(15,17,21,.75) 40%, rgba(15,17,21,.9)); }
+    .final h2 { font-size: 30px; }
+
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 13px; text-align: center; }
     footer p + p { margin-top: 6px; }
+    footer .credits { font-size: 11px; opacity: .7; }
 
     /* ---------- Липка кнопка (мобільна) ---------- */
     .sticky-cta {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
       padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-      background: rgba(15, 17, 21, .92);
+      background: rgba(15, 17, 21, .94);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-top: 1px solid var(--line);
       transition: transform .25s ease;
@@ -230,7 +341,7 @@
     .sticky-cta.hide { transform: translateY(110%); }
     .sticky-cta .inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
     .sticky-cta .sp { flex: 0 0 auto; line-height: 1.1; }
-    .sticky-cta .sp b { font-size: 22px; display: block; }
+    .sticky-cta .sp b { font-size: 22px; display: block; color: var(--accent); }
     .sticky-cta .sp s { color: var(--muted); font-size: 13px; }
     .sticky-cta .btn { min-height: 52px; }
 
@@ -239,156 +350,287 @@
       body { padding-bottom: 0; }
       .sticky-cta { display: none; }
       .wrap { max-width: 1040px; }
-      section { padding: 72px 0; }
-      h2 { font-size: 34px; }
-      .hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+      section { padding: 80px 0; }
+      h2 { font-size: 36px; }
+      .hero { padding: 64px 0 80px; }
+      .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
       .hero .hero-img { order: 2; margin: 0; }
-      .hero h1 { font-size: 44px; }
-      .features { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 48px; }
+      .features { grid-template-columns: 1fr 1fr 1fr; }
       .pain { grid-template-columns: repeat(3, 1fr); }
       .del-grid { grid-template-columns: repeat(4, 1fr); }
-      .narrow { max-width: 560px; margin: 0 auto; }
+      .scroller { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); grid-auto-columns: auto; overflow: visible; margin: 0; padding: 0; }
+      .dots { display: none; }
+      .narrow { max-width: 620px; margin: 0 auto; }
+      .split > * + * { margin-top: 0; }
+      .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     }
   </style>
 </head>
 <body>
 
+  <div class="promo">🔥 Акція: −33% на SunShield · Оплата лише при отриманні</div>
+
   <header class="top">
     <div class="wrap">
       <a href="#" class="logo">Sun<span>Shield</span></a>
-      <a href="tel:+380000000000" class="phone">📞 +38 (000) 000-00-00</a>
+      <a href="#order" class="mini-btn">Замовити</a>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-img">
-        <span class="sale">−45%</span>
-        <img src="img/visor.jpg" alt="Поляризований козирок-подовжувач, встановлений на сонцезахисний щиток авто" width="589" height="464" />
+        <span class="sale">−33%</span>
+        <img src="img/visor.jpg" alt="Поляризований козирок-подовжувач SunShield на сонцезахисному щитку авто" width="589" height="464" />
       </div>
       <div>
-        <span class="badge">☀️ Хіт сезону для водіїв</span>
+        <span class="badge">☀️ Must-have для кожного водія</span>
         <h1>Сонце більше <span class="accent">не сліпить</span> за кермом</h1>
-        <p class="sub">Поляризований козирок-подовжувач кріпиться на штатний щиток за 10 секунд і закриває дорогу від сліпучого сонця та відблисків.</p>
-        <div class="price-row">
-          <div class="price"><span data-price-one>499</span> <small>грн</small></div>
-          <div class="old"><span data-price-old>899</span> грн</div>
+        <p class="sub">Поляризований козирок SunShield закриває очі від низького сонця та відблисків — ви бачите дорогу чітко, а не мружитеся наосліп. Встановлення за 10 секунд.</p>
+
+        <div class="price-box">
+          <div class="price-row">
+            <div class="price"><span data-price-one>799</span> <small>грн</small></div>
+            <div class="old"><span data-price-old>1199</span> грн</div>
+            <div class="save">Економія <span data-save>400</span> грн</div>
+          </div>
+          <p class="price-note">💵 Без передоплати — оплата при отриманні на Новій Пошті</p>
         </div>
-        <p class="price-note">Оплата при отриманні · Доставка Новою Поштою</p>
-        <a href="#order" class="btn">Замовити зі знижкою →</a>
-        <div class="mini-points">
-          <div><b>🕶️</b>Поляризація</div>
-          <div><b>🚗</b>Для будь-якого авто</div>
-          <div><b>⚡</b>Монтаж 10 сек</div>
+
+        <a href="#order" class="btn pulse">Замовити зі знижкою −33% →</a>
+
+        <div class="trust">
+          <div><b>🕶️</b>Поляризований екран</div>
+          <div><b>🚗</b>Підходить до більшості авто</div>
+          <div><b>🔍</b>Огляд перед оплатою</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ПРОБЛЕМА -->
-  <section class="problem">
-    <div class="wrap">
-      <h2>Знайомо?</h2>
-      <p class="lead">Штатний козирок не рятує, коли сонце низько над дорогою.</p>
-      <div class="pain">
-        <div><i>😣</i><span>Вранці та ввечері сонце б'є просто в очі — доводиться мружитися й скидати швидкість.</span></div>
-        <div><i>🌫️</i><span>Відблиски від мокрої дороги та капота «засвічують» усе довкола.</span></div>
-        <div><i>⚠️</i><span>Кілька секунд «засліплення» на трасі — це реальний ризик аварії.</span></div>
+  <!-- ===== ПРОБЛЕМА ===== -->
+  <section class="alt">
+    <div class="wrap split">
+      <div class="photo-card reveal">
+        <img src="img/city-sun.jpg" alt="Низьке сонце засліплює водія на дорозі" loading="lazy" />
+        <div class="cap">Знайома картина щоранку й щовечора?</div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Проблема</span>
+        <h2>Кілька секунд наосліп — і ви не бачите, що попереду</h2>
+        <p class="lead" style="margin-bottom:0">Штатний козирок закриває лише верх скла. А сонце найчастіше світить саме тоді, коли висить низько над дорогою — у годину пік.</p>
+        <div class="pain">
+          <div><i>😣</i><span>Мружитеся, сповільнюєтесь, а позаду сигналять.</span></div>
+          <div><i>🌫️</i><span>Відблиски від мокрого асфальту, снігу та капота «засвічують» усе довкола.</span></div>
+          <div><i>🤕</i><span>Після дороги — втомлені очі й головний біль.</span></div>
+          <div><i>⚠️</i><span>Пішохід чи світлофор, яких не видно в сонячному мареві, — реальний ризик.</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ДО / ПІСЛЯ -->
+  <!-- ===== РІШЕННЯ: ДО / ПІСЛЯ ===== -->
   <section>
     <div class="wrap narrow">
-      <h2>Різниця <span class="accent">очевидна</span></h2>
-      <p class="lead">Поляризаційний фільтр гасить відблиски, а дорога стає чіткою та контрастною.</p>
-      <div class="compare" id="compare">
-        <img src="img/visor.jpg" class="before-img" alt="Без козирка" />
-        <div class="after"><img src="img/visor.jpg" alt="З поляризованим козирком" /></div>
+      <div class="reveal">
+        <span class="eyebrow">Рішення</span>
+        <h2>Опустіть екран — і <span class="accent">дорога знову чітка</span></h2>
+        <p class="lead">Поляризаційний фільтр гасить сліпуче світло й відблиски, а дорога, знаки та машини попереду залишаються добре видимими.</p>
+      </div>
+      <div class="compare reveal" id="compare">
+        <img src="img/city-sun.jpg" alt="Без козирка: сонце засліплює" />
+        <div class="after"><img src="img/city-sun-visor.jpg" alt="З козирком SunShield: світло приглушене" /></div>
         <div class="handle" id="handle"></div>
         <span class="tag l">Без козирка</span>
         <span class="tag r">З SunShield</span>
       </div>
-      <p class="hint">Потягніть повзунок 👆</p>
+      <p class="hint">👆 Потягніть повзунок, щоб побачити різницю · ілюстрація ефекту</p>
     </div>
   </section>
 
-  <!-- ПЕРЕВАГИ -->
-  <section style="padding-top:0">
+  <!-- ===== СЦЕНАРІЇ ===== -->
+  <section class="alt">
     <div class="wrap">
-      <h2>Чому обирають SunShield</h2>
-      <p class="lead">Простий аксесуар, який робить кожну поїздку комфортнішою та безпечнішою.</p>
+      <div class="reveal">
+        <span class="eyebrow">Кожен день</span>
+        <h2>Рятує в будь-яку пору року</h2>
+        <p class="lead">Сонце сліпить не лише влітку. SunShield працює цілий рік.</p>
+      </div>
+      <div class="scroller" id="scroller">
+        <article class="scene"><img src="img/morning.jpg" alt="Ранкове сонце світить у лобове скло" loading="lazy" /><div><h3>🌅 Ранок, дорога на роботу</h3><p>Сонце сходить просто по курсу — а ви спокійно їдете, не мружачись.</p></div></article>
+        <article class="scene"><img src="img/drive-sun.jpg" alt="Водій їде назустріч сонцю ввечері" loading="lazy" /><div><h3>🌇 Вечір, дорога додому</h3><p>Захід сонця в очі після робочого дня — більше не проблема.</p></div></article>
+        <article class="scene"><img src="img/winter.jpg" alt="Зимова дорога зі сліпучим сонцем і снігом" loading="lazy" /><div><h3>❄️ Зима і сніг</h3><p>Низьке зимове сонце та сліпучий сніг — найнебезпечніша комбінація.</p></div></article>
+        <article class="scene"><img src="img/city-sun.jpg" alt="Місто в сонячному мареві" loading="lazy" /><div><h3>🏙️ Місто і траса</h3><p>Чітко бачите світлофори, знаки та гальмівні вогні попереду.</p></div></article>
+      </div>
+      <div class="dots" id="dots"><span class="on"></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <!-- ===== ПЕРЕВАГИ ===== -->
+  <section>
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Переваги</span>
+        <h2>Чому водії обирають SunShield</h2>
+        <p class="lead">Маленький аксесуар, який робить кожну поїздку спокійнішою та безпечнішою.</p>
+      </div>
       <div class="features">
-        <div class="feature"><div class="ico">🕶️</div><div><h3>Поляризований екран</h3><p>Прибирає сліпучі відблиски від сонця, мокрого асфальту та капота.</p></div></div>
-        <div class="feature"><div class="ico">↔️</div><div><h3>Висувна конструкція</h3><p>Екран висувається вниз саме там, де потрібно, і ховається, коли сонця немає.</p></div></div>
-        <div class="feature"><div class="ico">🚙</div><div><h3>Універсальне кріплення</h3><p>Підходить для легкових авто, кросоверів і мінівенів — тримається на штатному щитку.</p></div></div>
-        <div class="feature"><div class="ico">👜</div><div><h3>Кишеня на блискавці</h3><p>Документи, права, карти та чеки завжди під рукою і не загубляться.</p></div></div>
-        <div class="feature"><div class="ico">✨</div><div><h3>Стильний вигляд</h3><p>Чорна екошкіра гармонійно виглядає в салоні будь-якого автомобіля.</p></div></div>
-        <div class="feature"><div class="ico">🛠️</div><div><h3>Без інструментів</h3><p>Нічого не треба свердлити чи клеїти — просто одягніть на козирок.</p></div></div>
+        <div class="feature reveal"><div class="ico">🕶️</div><div><h3>Поляризований екран</h3><p>Гасить сліпучі відблиски від сонця, мокрого асфальту, снігу й капота — як якісні поляризовані окуляри.</p></div></div>
+        <div class="feature reveal"><div class="ico">↕️</div><div><h3>Закриває там, де штатний не дістає</h3><p>Екран висувається нижче штатного козирка — саме туди, де висить низьке сонце.</p></div></div>
+        <div class="feature reveal"><div class="ico">👀</div><div><h3>Менше втоми для очей</h3><p>Не треба мружитися всю дорогу — приїжджаєте без напружених очей і головного болю.</p></div></div>
+        <div class="feature reveal"><div class="ico">🚙</div><div><h3>Універсальний</h3><p>Кріпиться на штатний козирок легковика, кросовера чи мінівена. Для водія і пасажира.</p></div></div>
+        <div class="feature reveal"><div class="ico">👜</div><div><h3>Кишеня на блискавці</h3><p>Права, техпаспорт, картки й чеки — завжди під рукою і не розлітаються салоном.</p></div></div>
+        <div class="feature reveal"><div class="ico">🛠️</div><div><h3>Без свердління й клею</h3><p>Одягли на козирок — готово. Так само легко зняти чи переставити в інше авто.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ЯК ВСТАНОВИТИ -->
-  <section class="problem">
+  <!-- ===== ДЕТАЛІ ===== -->
+  <section class="alt">
     <div class="wrap narrow">
-      <h2>Встановлення за 10 секунд</h2>
-      <p class="lead">Впорається будь-хто.</p>
-      <div class="steps">
+      <div class="reveal">
+        <span class="eyebrow">Деталі</span>
+        <h2>Продумано до дрібниць</h2>
+        <p class="lead">Стриманий чорний дизайн, який виглядає дорого в будь-якому салоні.</p>
+      </div>
+      <div class="details reveal">
+        <figure class="wide"><img src="img/visor.jpg" alt="SunShield встановлений в авто" loading="lazy" /><figcaption>Встановлений на штатний козирок<span>Не заважає, коли складений</span></figcaption></figure>
+        <figure><img src="img/pocket.jpg" alt="Кишеня на блискавці" loading="lazy" /><figcaption>Кишеня на блискавці<span>Для документів і карток</span></figcaption></figure>
+        <figure><img src="img/lens.jpg" alt="Поляризований екран" loading="lazy" /><figcaption>Поляризований екран<span>Чіткий огляд дороги</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОРІВНЯННЯ ===== -->
+  <section>
+    <div class="wrap narrow">
+      <div class="reveal">
+        <span class="eyebrow">Порівняння</span>
+        <h2>Чому не просто окуляри?</h2>
+        <p class="lead">Окуляри треба шукати, вдягати й знімати — а в тунелі чи тіні вони тільки заважають.</p>
+      </div>
+      <table class="vs reveal">
+        <thead><tr><th></th><th class="us">SunShield</th><th>Штатний козирок</th><th>Окуляри</th></tr></thead>
+        <tbody>
+          <tr><td>Закриває низьке сонце</td><td class="us yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
+          <tr><td>Гасить відблиски</td><td class="us yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
+          <tr><td>Прибрати за 1 секунду</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+          <tr><td>Для водія й пасажира</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+          <tr><td>Не губиться в салоні</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+          <tr><td>Кишеня для документів</td><td class="us yes">✓</td><td class="no">✕</td><td class="no">✕</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== ВСТАНОВЛЕННЯ ===== -->
+  <section class="alt">
+    <div class="wrap narrow">
+      <div class="reveal">
+        <span class="eyebrow">Встановлення</span>
+        <h2>3 кроки — 10 секунд</h2>
+        <p class="lead">Жодних інструментів. Впорається будь-хто.</p>
+      </div>
+      <div class="steps reveal">
         <div class="step">Опустіть штатний сонцезахисний козирок.</div>
-        <div class="step">Одягніть SunShield на козирок і затягніть ремінці.</div>
+        <div class="step">Одягніть SunShield і зафіксуйте кріплення.</div>
         <div class="step">Висуньте поляризований екран — і в дорогу!</div>
       </div>
     </div>
   </section>
 
-  <!-- ХАРАКТЕРИСТИКИ -->
+  <!-- ===== ПОДАРУНОК ===== -->
   <section>
     <div class="wrap narrow">
-      <h2>Характеристики</h2>
-      <p class="lead">Усе, що потрібно знати перед покупкою.</p>
-      <div class="specs">
+      <div class="gift reveal">
+        <div class="big">🎁</div>
+        <h2>Ідеальний подарунок водію</h2>
+        <p class="lead" style="margin-bottom:0">Корисний, недорогий і точно знадобиться. Чоловіку, татові, другу, колезі — кожен, хто кермує, оцінить.</p>
+        <ul>
+          <li>Користуються щодня, а не кладуть на полицю</li>
+          <li>Стильний корпус з екошкіри пасує до будь-якого салону</li>
+          <li>2 шт — для обох авто в родині або водія й пасажира</li>
+        </ul>
+        <a href="#order" class="btn">Обрати подарунок</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ЦІНА ЗА ДЕНЬ ===== -->
+  <section class="alt">
+    <div class="wrap narrow perday reveal">
+      <span class="eyebrow">Чесна ціна</span>
+      <div class="num"><span id="perDay">2,19</span> <small>грн</small></div>
+      <h2 style="margin-top:8px">на день протягом року</h2>
+      <p class="lead">Це близько <span id="perMonth">67</span> грн на місяць — ціна однієї кави за спокій і безпеку кожної поїздки.</p>
+    </div>
+  </section>
+
+  <!-- ===== ХАРАКТЕРИСТИКИ ===== -->
+  <section>
+    <div class="wrap narrow">
+      <div class="reveal">
+        <span class="eyebrow">Характеристики</span>
+        <h2>Коротко про головне</h2>
+      </div>
+      <div class="specs reveal" style="margin-top:20px">
         <div><span>Тип</span><span>Козирок-подовжувач</span></div>
         <div><span>Екран</span><span>Поляризований, тонований</span></div>
         <div><span>Корпус</span><span>Екошкіра, чорний</span></div>
         <div><span>Кріплення</span><span>На штатний козирок</span></div>
         <div><span>Додатково</span><span>Кишеня на блискавці</span></div>
-        <div><span>Сумісність</span><span>Більшість авто</span></div>
+        <div><span>Сумісність</span><span>Більшість легкових авто</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ДОСТАВКА -->
-  <section class="delivery">
+  <!-- ===== ДОСТАВКА І ГАРАНТІЇ ===== -->
+  <section class="alt">
     <div class="wrap">
-      <h2>Доставка та оплата</h2>
-      <p class="lead">Без передоплати — платите, лише коли отримали й оглянули товар.</p>
-      <div class="del-grid">
+      <div class="reveal">
+        <span class="eyebrow">Без ризику</span>
+        <h2>Доставка та оплата</h2>
+        <p class="lead">Жодної передоплати — платите лише тоді, коли отримали й оглянули товар.</p>
+      </div>
+      <div class="del-grid reveal">
         <div><i>📦</i><b>Нова Пошта</b><span>Відправка 1–2 дні</span></div>
         <div><i>💵</i><b>Накладений платіж</b><span>Оплата при отриманні</span></div>
         <div><i>🔍</i><b>Огляд на пошті</b><span>Перевірте перед оплатою</span></div>
         <div><i>↩️</i><b>14 днів</b><span>На обмін і повернення</span></div>
       </div>
+      <div class="guarantee reveal">
+        <div class="seal">14<br>днів</div>
+        <p><b>Гарантія задоволення.</b> Не сподобається — поверніть протягом 14 днів згідно із законом «Про захист прав споживачів».</p>
+      </div>
     </div>
   </section>
 
-  <!-- ФОРМА -->
+  <!-- ===== ФОРМА ===== -->
   <section id="order">
     <div class="wrap narrow">
-      <h2>Оформіть <span class="accent">замовлення</span></h2>
-      <p class="lead">Залиште контакти — менеджер зателефонує для підтвердження.</p>
+      <span class="eyebrow">Замовлення</span>
+      <h2>Встигніть за <span class="accent">акційною ціною</span></h2>
+      <p class="lead">Залиште ім'я та телефон — менеджер зателефонує й уточнить відділення Нової Пошти.</p>
 
       <div class="order-card">
         <form id="orderForm" novalidate>
+          <div class="order-head">
+            <img src="img/visor.jpg" alt="" />
+            <div><b>Поляризований козирок SunShield</b><span>Оплата при отриманні</span></div>
+          </div>
+
           <div class="qty" id="qty">
-            <label><input type="radio" name="qty" value="1" checked />
-              <span class="name">1 козирок</span><span class="p"><span data-bundle="1"></span> грн</span></label>
-            <label><input type="radio" name="qty" value="2" />
-              <span class="name">2 козирки<small>Для двох авто або водія й пасажира</small></span><span class="p"><span data-bundle="2"></span> грн</span></label>
+            <label class="on"><input type="radio" name="qty" value="1" checked />
+              <span class="name">1 козирок</span>
+              <span class="p"><span data-bundle="1"></span> грн<s><span data-bundle-old="1"></span> грн</s></span></label>
+            <label><span class="hit">ХІТ</span><input type="radio" name="qty" value="2" />
+              <span class="name">2 козирки<small>Економія <span data-bundle-save="2"></span> грн</small></span>
+              <span class="p"><span data-bundle="2"></span> грн<s><span data-bundle-old="2"></span> грн</s></span></label>
             <label><input type="radio" name="qty" value="3" />
-              <span class="name">3 козирки<small>Найвигідніше</small></span><span class="p"><span data-bundle="3"></span> грн</span></label>
+              <span class="name">3 козирки<small>Економія <span data-bundle-save="3"></span> грн</small></span>
+              <span class="p"><span data-bundle="3"></span> грн<s><span data-bundle-old="3"></span> грн</s></span></label>
           </div>
 
           <div class="field">
@@ -400,9 +642,9 @@
             <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required />
           </div>
 
-          <div class="total"><span>До сплати:</span><b><span id="total"></span> грн</b></div>
-          <button type="submit" class="btn">Замовити</button>
-          <p class="secure">🔒 Ваші дані не передаються третім особам</p>
+          <div class="total"><span>До сплати при отриманні:</span><b><span id="total"></span> грн</b></div>
+          <button type="submit" class="btn pulse">Оформити замовлення</button>
+          <p class="secure">🔒 Ваші дані в безпеці й не передаються третім особам</p>
         </form>
 
         <div class="thanks" id="thanks">
@@ -414,16 +656,26 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" style="padding-top:0">
+  <!-- ===== FAQ ===== -->
+  <section class="faq alt">
     <div class="wrap narrow">
-      <h2>Питання та відповіді</h2>
-      <p class="lead">&nbsp;</p>
-      <details><summary>Чи підійде до мого авто?</summary><p>Так, козирок кріпиться на штатний сонцезахисний щиток і підходить для більшості легкових авто, кросоверів і мінівенів.</p></details>
-      <details><summary>Чи не обмежує він огляд?</summary><p>Екран прозорий і лише приглушує яскраве світло та відблиски. Коли сонця немає — його можна сховати.</p></details>
-      <details><summary>Як оплатити?</summary><p>Оплата при отриманні на відділенні Нової Пошти. Ви можете оглянути товар перед оплатою.</p></details>
+      <span class="eyebrow">Питання</span>
+      <h2 style="margin-bottom:20px">Часті запитання</h2>
+      <details><summary>Чи підійде до мого авто?</summary><p>Так, козирок кріпиться на штатний сонцезахисний щиток і підходить для більшості легкових авто, кросоверів і мінівенів. Якщо сумніваєтесь — менеджер підкаже при дзвінку.</p></details>
+      <details><summary>Чи не заважає огляду?</summary><p>Екран прозорий і лише приглушує яскраве світло та відблиски — дорогу видно чітко. Коли сонця немає, його легко прибрати.</p></details>
+      <details><summary>Чи можна користуватися вночі?</summary><p>Ні, екран тонований і призначений для денного сонця. Увечері та вночі просто приберіть його.</p></details>
+      <details><summary>Як оплатити?</summary><p>Оплата при отриманні на відділенні Нової Пошти. Спершу оглядаєте товар — потім платите.</p></details>
       <details><summary>Скільки триває доставка?</summary><p>Відправляємо протягом 1–2 робочих днів, доставка Новою Поштою зазвичай займає 1–3 дні.</p></details>
       <details><summary>Чи можна повернути?</summary><p>Так, протягом 14 днів згідно із законом «Про захист прав споживачів».</p></details>
+    </div>
+  </section>
+
+  <!-- ===== ФІНАЛ ===== -->
+  <section class="final">
+    <div class="wrap narrow reveal">
+      <h2>Їдьте назустріч сонцю <span class="accent">спокійно</span></h2>
+      <p class="lead">SunShield за <b style="color:var(--text)"><span data-price-one>799</span> грн</b> замість <s><span data-price-old>1199</span> грн</s>. Оплата при отриманні.</p>
+      <a href="#order" class="btn pulse">Замовити SunShield</a>
     </div>
   </section>
 
@@ -432,29 +684,39 @@
       <p><b>SunShield</b> · Аксесуари для авто</p>
       <p>📞 +38 (000) 000-00-00 · Пн–Нд 9:00–20:00</p>
       <p>© 2026 Усі права захищено</p>
+      <p class="credits">Фото: Unsplash (Unsplash License). Зображення «з SunShield» — ілюстрація ефекту.</p>
     </div>
   </footer>
 
-  <!-- Липка кнопка для мобільних -->
   <div class="sticky-cta" id="stickyCta">
     <div class="inner">
-      <div class="sp"><b><span data-price-one>499</span> грн</b><s><span data-price-old>899</span> грн</s></div>
-      <a href="#order" class="btn">Замовити</a>
+      <div class="sp"><b><span data-price-one>799</span> грн</b><s><span data-price-old>1199</span> грн</s></div>
+      <a href="#order" class="btn">Замовити зі знижкою</a>
     </div>
   </div>
 
   <script>
     // ===== Ціни (змінюйте тут) =====
-    const PRICES = { old: 899, bundles: { 1: 499, 2: 899, 3: 1199 } };
+    const PRICES = {
+      old: 1199,                              // стара ціна за 1 шт
+      bundles: { 1: 799, 2: 1399, 3: 1899 }   // ціна комплекту
+    };
 
-    document.querySelectorAll('[data-price-one]').forEach(el => el.textContent = PRICES.bundles[1]);
-    document.querySelectorAll('[data-price-old]').forEach(el => el.textContent = PRICES.old);
-    document.querySelectorAll('[data-bundle]').forEach(el => el.textContent = PRICES.bundles[el.dataset.bundle]);
+    const $$ = (s) => document.querySelectorAll(s);
+    $$('[data-price-one]').forEach(el => el.textContent = PRICES.bundles[1]);
+    $$('[data-price-old]').forEach(el => el.textContent = PRICES.old);
+    $$('[data-save]').forEach(el => el.textContent = PRICES.old - PRICES.bundles[1]);
+    $$('[data-bundle]').forEach(el => el.textContent = PRICES.bundles[el.dataset.bundle]);
+    $$('[data-bundle-old]').forEach(el => el.textContent = PRICES.old * el.dataset.bundleOld);
+    $$('[data-bundle-save]').forEach(el => { const n = +el.dataset.bundleSave; el.textContent = PRICES.old * n - PRICES.bundles[n]; });
+    document.getElementById('perMonth').textContent = Math.round(PRICES.bundles[1] / 12);
+    document.getElementById('perDay').textContent = (PRICES.bundles[1] / 365).toFixed(2).replace('.', ',');
 
     const totalEl = document.getElementById('total');
     const updateTotal = () => {
-      const q = document.querySelector('input[name="qty"]:checked').value;
-      totalEl.textContent = PRICES.bundles[q];
+      const checked = document.querySelector('input[name="qty"]:checked');
+      $$('#qty label').forEach(l => l.classList.toggle('on', l.contains(checked)));
+      totalEl.textContent = PRICES.bundles[checked.value];
     };
     document.getElementById('qty').addEventListener('change', updateTotal);
     updateTotal();
@@ -465,8 +727,7 @@
     phone.addEventListener('input', () => {
       let d = phone.value.replace(/\D/g, '');
       if (!d.startsWith('380')) d = '380' + d.replace(/^3?8?0?/, '');
-      d = d.slice(0, 12);
-      const p = d.slice(3);
+      const p = d.slice(3, 12);
       let out = '+380';
       if (p.length) out += ' ' + p.slice(0, 2);
       if (p.length > 2) out += ' ' + p.slice(2, 5);
@@ -511,7 +772,21 @@
     window.addEventListener('pointermove', e => { if (drag) setPos(e.clientX); });
     window.addEventListener('pointerup', () => drag = false);
 
-    // ===== Ховати липку кнопку, коли видно форму =====
+    // ===== Точки під горизонтальною галереєю =====
+    const scroller = document.getElementById('scroller');
+    const dots = document.querySelectorAll('#dots span');
+    scroller.addEventListener('scroll', () => {
+      const i = Math.round(scroller.scrollLeft / (scroller.scrollWidth - scroller.clientWidth) * (dots.length - 1)) || 0;
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    }, { passive: true });
+
+    // ===== Поява блоків при прокрутці =====
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    }), { threshold: 0.12 });
+    $$('.reveal').forEach(el => io.observe(el));
+
+    // ===== Ховати липку кнопку біля форми =====
     const sticky = document.getElementById('stickyCta');
     new IntersectionObserver(([en]) => sticky.classList.toggle('hide', en.isIntersecting), { threshold: 0.1 })
       .observe(document.getElementById('order'));
