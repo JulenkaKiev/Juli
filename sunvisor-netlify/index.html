@@ -446,8 +446,7 @@ h1, h2, h3, h4, .mp-price, .value, .main-price, .button, .btn-order { font-famil
 
 
 
-<!-- Відгуки: покладіть скриншоти в папку reviews/ з назвами review1.jpg, review2.jpg ... (до review30, можна .png).
-     Яких файлів немає — ті не показуються. Немає жодного — блок прихований. -->
+<!-- Відгуки: скриншоти додаються через адмінку /admin.html. Немає жодного — блок прихований. -->
 <div class="reviews-block" id="reviews" hidden>
     <h2 class="reviews-title">Відгуки покупців</h2>
     <div class="reviews-track" id="reviewsTrack"></div>
@@ -597,28 +596,24 @@ h1, h2, h3, h4, .mp-price, .value, .main-price, .button, .btn-order { font-famil
         });
     });
 
-    // Відгуки зі скриншотів reviews/review1.jpg (або .png) ... review30
-    (function () {
-        var track = document.getElementById('reviewsTrack');
-        var shown = 0;
-        for (var i = 1; i <= 30; i++) {
-            var img = new Image();
-            img.alt = 'Відгук покупця';
-            img.style.order = i;
-            img.dataset.n = i;
-            img.onload = function () {
-                track.appendChild(this);
-                shown++;
-                document.getElementById('reviews').hidden = false;
-                document.getElementById('reviewsHint').hidden = shown < 2;
-            };
-            img.onerror = function () {
-                // немає .jpg — пробуємо .png
-                if (this.src.slice(-4) === '.jpg') this.src = 'reviews/review' + this.dataset.n + '.png';
-            };
-            img.src = 'reviews/review' + i + '.jpg';
-        }
-    })();
+    // Відгуки: скриншоти, додані через адмінку (/admin.html)
+    fetch('/api/reviews')
+        .then(function (r) { return r.ok ? r.json() : { reviews: [] }; })
+        .then(function (data) {
+            var list = data.reviews || [];
+            if (!list.length) return;
+            var track = document.getElementById('reviewsTrack');
+            list.forEach(function (r) {
+                var img = document.createElement('img');
+                img.src = r.url;
+                img.alt = 'Відгук покупця';
+                img.loading = 'lazy';
+                track.appendChild(img);
+            });
+            document.getElementById('reviews').hidden = false;
+            document.getElementById('reviewsHint').hidden = list.length < 2;
+        })
+        .catch(function () {});
 
     // Sticky bottom bar scroll logic
     window.addEventListener('scroll', function() {
