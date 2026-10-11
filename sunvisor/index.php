@@ -42,7 +42,7 @@ $_SESSION['utms']['utm_campaign'] = $_GET['utm_campaign'] ? $_GET['utm_campaign'
 <link href="css/all.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/add.css" rel="stylesheet"/>
 <link href="css/styles.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -61,522 +61,271 @@ src="https://www.facebook.com/tr?id=1627430141996907&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <style>
-body {
-    font-family: 'Outfit', sans-serif;
+/* ===== ДИЗАЙН: преміальний автотовар — графіт + бурштин =====
+   Стилі повні й самодостатні: перекривають зовнішні css шаблону. */
+:root {
+    --ink: #0E1116;
+    --ink-2: #171B22;
+    --ink-3: #232934;
+    --paper: #F4F5F7;
+    --card: #FFFFFF;
+    --text: #1C2129;
+    --muted: #6B7380;
+    --line: #E4E7EC;
+    --amber: #FFB020;
+    --amber-2: #FF7A00;
+    --grad: linear-gradient(135deg, #FFB020 0%, #FF7A00 100%);
+    --r: 18px;
+}
+html, body {
+    margin: 0 !important;
+    background: var(--ink) !important;
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    color: var(--text);
     cursor: default;
+    -webkit-font-smoothing: antialiased;
 }
-.fake-notification {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, #F07800, #FF9F1C);
-    color: #fff;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(255, 159, 28, 0.3);
-    font-size: 14px;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    gap: 12px;
-    width: 95%;
-    max-width: 400px;
-    border: none;
-    font-family: Arial, sans-serif;
-}
-.fake-notification.show {
-    display: flex;
-    animation: slideDown 0.5s ease-out;
-}
-.fake-notification.hide {
-    animation: slideUp 0.5s ease-in forwards;
-}
-@keyframes slideDown {
-    from { top: -50px; opacity: 0; }
-    to { top: 20px; opacity: 1; }
-}
-@keyframes slideUp {
-    from { top: 20px; opacity: 1; }
-    to { top: -50px; opacity: 0; }
-}
-.fake-notification .notif-icon-wrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid #FF9F1C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.fake-notification .notif-icon-wrap svg {
-    width: 24px;
-    height: 24px;
-    fill: #666;
-}
-.fake-notification .notif-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1.3;
-}
-.fake-notification .notif-title {
-    font-weight: 900;
-    font-size: 16px;
-    color: #fff;
-}
-.fake-notification .notif-desc {
-    font-size: 13px;
-    color: #eee;
-}
-.fake-notification .notif-time {
-    color: #fff;
-    font-weight: bold;
-    font-size: 13px;
-    white-space: nowrap;
-    background: rgba(255,255,255,0.2);
-    padding: 2px 8px;
-    border-radius: 20px;
-}
-
-.offer video { display: block; width: 100%; height: auto; }
-
-/* Benefits Checklist Style */
-.benefits-checklist-new {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 15px;
-    margin: 30px auto;
-    max-width: 420px;
-}
-.benefits-checklist-new .benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: transparent;
-}
-.benefits-checklist-new .benefit-icon {
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg, #FF9F1C, #F07800);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 900;
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(255, 159, 28, 0.3);
-    border: 3px solid #fff;
-}
-.benefits-checklist-new .benefit-text {
-    text-align: left;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.4;
-}
-.benefits-checklist-new .benefit-text strong {
-    display: block;
-    font-size: 20px;
-    color: #F07800;
-    font-weight: 900;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
-}
-
-/* Normal text blocks */
-.text-bg {
-    padding: 20px;
-    margin: 25px 15px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    text-align: left;
-}
-.text-bg h3 {
-    color: #1a1a1a;
-    font-size: 19px;
-    font-weight: 900;
-    margin-top: 0;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-.text-bg p {
-    color: #333;
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Google Reviews */
-.google-reviews-container {
-    background: #ECEFF3;
-    padding: 20px 15px;
-    font-family: Arial, sans-serif;
-    margin-top: 20px;
-}
-.google-rating-header {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-}
-.google-rating-header .left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.google-rating-header .left img {
-    width: 40px;
-}
-.google-rating-header .left .title-g {
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-}
-.google-rating-header .left .verified {
-    color: #008744;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    font-weight: bold;
-}
-.google-rating-header .right {
-    text-align: right;
-}
-.google-rating-header .right .score {
-    font-size: 28px;
-    font-weight: 900;
-    color: #202124;
-}
-.google-rating-header .right .out-of {
-    font-size: 14px;
-    color: #70757a;
-}
-.google-stats {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: #70757a;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-}
-.google-stats .green {
-    color: #008744;
-    font-weight: bold;
-}
-.progress-bar {
-    height: 4px;
-    background: #e0e0e0;
-    border-radius: 2px;
-    margin-top: 5px;
+.wrap {
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    background: var(--paper) !important;
     overflow: hidden;
 }
-.progress-bar .fill {
-    height: 100%;
-    background: #FF9F1C;
-    width: 94%;
-}
+img, video { max-width: 100%; display: block; }
+h1, h2, h3, h4, .mp-price, .value, .main-price, .button, .btn-order { font-family: 'Outfit', sans-serif !important; }
 
-.google-review-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.g-rev-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-.g-rev-user {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.g-rev-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 16px;
-}
-.g-rev-name {
-    font-weight: bold;
-    font-size: 15px;
-    color: #202124;
-}
-.g-rev-stars {
-    color: #fbbc04;
-    font-size: 14px;
-    margin-top: 2px;
-}
-.g-rev-badge {
-    background: #e6f4ea;
-    color: #137333;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 10px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    text-transform: uppercase;
-}
-.g-rev-badge.new {
-    background: #e8f0fe;
-    color: #1967d2;
-}
-.g-rev-text {
-    font-size: 14px;
-    color: #3c4043;
-    line-height: 1.5;
-    margin-bottom: 10px;
-}
-.g-rev-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: #70757a;
-}
-.g-rev-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-.g-rev-actions div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Sticky Bottom Button */
-.sticky-bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(100%);
-    width: 100%;
-    max-width: 480px;
-    background: rgba(31, 41, 51, 0.96);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
-    z-index: 999;
-    box-sizing: border-box;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
-    opacity: 0;
-    pointer-events: none;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-bottom: none;
-}
-.sticky-bottom-bar.visible {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-.sticky-bottom-bar .price-info {
-    color: white;
-}
-.sticky-bottom-bar .price-info .main-price {
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1;
-}
-.sticky-bottom-bar .price-info .stock {
-    font-size: 12px;
-    color: #FFD59A;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 4px;
-}
-.sticky-bottom-bar .stock::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #FFD59A;
-    border-radius: 50%;
-}
-.sticky-bottom-bar .btn-order {
-    background: linear-gradient(135deg, #FF9F1C, #F07800);
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 900;
-    font-size: 18px;
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(255, 159, 28, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(255,255,255,0.2);
-    display: inline-block;
-    animation: pulseGlow 2s infinite;
-}
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(255, 159, 28, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0); }
-}
-
-.sticky-bottom-bar .btn-order:active {
-    transform: translateY(2px) scale(0.98);
-    box-shadow: 0 2px 10px rgba(255, 159, 28, 0.3);
-}
-
-.main-title-box {
-    padding: 0;
-    text-align: center;
-    margin: 0;
-}
+/* ---------- ЗАГОЛОВОК ---------- */
+.offer_section { background: var(--ink) !important; color: #fff; padding: 0 !important; margin: 0 !important; }
+.main-title-box { padding: 26px 22px 18px !important; text-align: left !important; margin: 0 !important; }
 .main-title-box h1 {
-    display: block;
-    background: linear-gradient(135deg, #FF9F1C, #F07800);
-    padding: 12px 10px;
-    border-radius: 0;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 900;
-    margin: 0;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: none;
-    border-bottom: 4px solid #B85A00;
-    line-height: 1.2;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    letter-spacing: 0.5px;
+    background: none !important; border: 0 !important; box-shadow: none !important; text-shadow: none !important;
+    padding: 0 !important; margin: 0 !important;
+    color: #fff !important; font-size: 30px !important; line-height: 1.08 !important;
+    font-weight: 800 !important; letter-spacing: -0.5px !important; text-transform: uppercase;
 }
 .main-title-box h1::before {
-    content: '🚗 ';
+    content: 'Новинка · 2 в 1' !important;
+    display: table; margin-bottom: 12px;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--amber); border: 1px solid rgba(255,176,32,.45); border-radius: 999px; padding: 5px 12px;
+}
+.main-title-box h1 span {
+    display: block; margin-top: 10px;
+    font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0;
+    font-size: 15px !important; font-weight: 500 !important; line-height: 1.5; color: #A7AFBC;
 }
 
-/* Multi-pack Offer Block */
+/* ---------- ПЕРШИЙ ЕКРАН ---------- */
+.offer { padding: 0 16px 26px !important; margin: 0 !important; background: none !important; text-align: center; }
+.offer > img, .offer > video {
+    width: 100% !important; border-radius: var(--r); aspect-ratio: 4 / 5; object-fit: cover;
+    box-shadow: 0 24px 60px rgba(0,0,0,.55); margin: 0 auto !important;
+}
+.benefits_list { display: flex !important; gap: 8px; margin: 16px 0 0 !important; padding: 0 !important; }
+.benefits_list::before, .benefits_list::after { display: none !important; }
+.benefit_item {
+    flex: 1; float: none !important; width: auto !important; margin: 0 !important;
+    background: var(--ink-2) !important; border: 1px solid var(--ink-3);
+    border-radius: 12px; padding: 10px 6px !important;
+    color: #D5DAE1 !important; font-size: 12px !important; font-weight: 600; line-height: 1.3 !important;
+    text-align: center;
+}
+.benefit_item::before { content: '✓'; display: block; color: var(--amber); font-weight: 800; margin-bottom: 2px; background: none !important; position: static !important; width: auto !important; height: auto !important; }
+
+.price_block {
+    display: flex !important; align-items: stretch; gap: 10px;
+    margin: 12px 0 0 !important; padding: 0 !important; background: none !important;
+}
+.price_block::before, .price_block::after { display: none !important; }
+.price_item {
+    flex: 1; float: none !important; width: auto !important; margin: 0 !important;
+    border-radius: 14px; padding: 14px 10px !important; text-align: center;
+    display: flex; flex-direction: column; justify-content: center; opacity: 1 !important;
+}
+.price_item.old { background: var(--ink-2) !important; border: 1px solid var(--ink-3); }
+.price_item.new { background: var(--grad) !important; box-shadow: 0 10px 30px rgba(255,122,0,.35); }
+.price_item .text {
+    font-family: 'Inter', sans-serif !important; font-size: 11px !important; line-height: 1.2 !important;
+    font-weight: 700 !important; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 4px !important;
+}
+.price_item.old .text { color: #8A93A1 !important; }
+.price_item.new .text, .price_item.new .text span { color: #1B1300 !important; }
+.price_item .value { font-size: 30px !important; font-weight: 800 !important; line-height: 1 !important; margin: 0 !important; }
+.price_item.old .value { color: #8A93A1 !important; text-decoration: line-through; font-size: 24px !important; }
+.price_item.new .value { color: #140E00 !important; font-size: 34px !important; }
+.offer > br { display: none; }
+
+/* ---------- КНОПКИ ---------- */
+.btn-block { margin: 14px 0 0 !important; }
+.button, .order_form .button, .btn-block .button {
+    display: block !important; width: 100% !important; box-sizing: border-box;
+    background: var(--grad) !important; color: #140E00 !important;
+    border: 0 !important; border-radius: 14px !important;
+    padding: 18px 16px !important; margin: 0 !important;
+    font-size: 18px !important; font-weight: 800 !important; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none !important; text-align: center;
+    box-shadow: 0 12px 30px rgba(255,122,0,.35) !important;
+    cursor: pointer; transition: transform .15s ease;
+    animation: btnPulse 2.4s infinite;
+}
+.button:active { transform: scale(.98); }
+.button .animate-ping, .button > span.flex { display: none !important; }
+@keyframes btnPulse {
+    0% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 0 rgba(255,176,32,.55); }
+    70% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 14px rgba(255,176,32,0); }
+    100% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 0 rgba(255,176,32,0); }
+}
+
+/* ---------- ОСНОВНИЙ КОНТЕНТ ---------- */
+.generate { background: var(--paper) !important; padding: 8px 0 40px !important; margin: 0 !important; }
+
+/* Береш два */
 .multi-pack-offer {
-    background: #F7F8FA;
-    border-radius: 12px;
-    margin: 30px auto;
-    max-width: 420px;
-    width: 92%;
-    padding: 20px 0 0 0;
-    overflow: hidden;
-    color: #1F2933;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 15px 35px rgba(31,41,51,0.12);
-    border: 1px solid rgba(31,41,51,0.15);
+    width: auto !important; max-width: none !important; margin: 24px 16px !important;
+    background: var(--card) !important; border: 1px solid var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: 0 10px 30px rgba(14,17,22,.06) !important; padding: 20px 0 0 !important; overflow: hidden;
+    font-family: 'Inter', sans-serif !important; color: var(--text) !important;
 }
-.multi-pack-offer h2 {
-    text-align: center;
-    font-size: 18px;
-    font-weight: 900;
-    margin: 0 0 15px 0;
-    text-transform: uppercase;
-    color: #1F2933;
-    letter-spacing: 1px;
+.multi-pack-offer h2 { font-size: 20px !important; font-weight: 800 !important; letter-spacing: .5px !important; color: var(--text) !important; margin: 0 0 16px !important; }
+.mp-row { position: relative; display: flex !important; align-items: center; gap: 12px; background: var(--card) !important; border-top: 1px solid var(--line) !important; padding: 18px 16px !important; justify-content: space-between !important; }
+.mp-row .mp-qty { font-size: 17px !important; font-weight: 600; color: var(--muted) !important; }
+.mp-row .mp-price { font-size: 26px !important; color: var(--text) !important; margin-left: auto !important; }
+.mp-row.highlight { background: #FFF8EC !important; border-left: 0 !important; box-shadow: inset 4px 0 0 var(--amber-2); }
+.mp-row.highlight .mp-price { color: var(--amber-2) !important; }
+.mp-row .mp-discount { padding: 5px 10px; font-weight: 800; background: var(--ink) !important; color: var(--amber) !important; font-size: 14px !important; border-radius: 8px !important; margin-right: 40px; }
+.mp-ribbon-wrap { position: absolute; top: 0; right: 0; width: 65px; height: 65px; overflow: hidden; }
+.mp-ribbon-wrap .mp-ribbon { position: absolute; top: 14px; right: -26px; width: 100px; transform: rotate(45deg); text-align: center; font-weight: 800; padding: 2px 0; background: var(--amber-2) !important; color: #fff !important; font-size: 11px !important; letter-spacing: 1px; }
+
+/* Переваги */
+.benefits-checklist-new { display: grid !important; gap: 12px !important; margin: 0 16px 24px !important; padding: 0 !important; max-width: none !important; }
+.benefits-checklist-new .benefit-item {
+    display: flex; align-items: flex-start !important; gap: 14px !important;
+    background: var(--card) !important; border: 1px solid var(--line); border-radius: var(--r);
+    padding: 18px 16px;
 }
-.mp-row {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 15px;
-    border-top: 1px solid #E3E7EC;
-    background: #F7F8FA;
-    gap: 12px;
+.benefits-checklist-new .benefit-icon {
+    width: 40px !important; height: 40px !important; border: 0 !important; border-radius: 12px !important;
+    display: flex !important; align-items: center; justify-content: center; font-weight: 800;
+    background: var(--ink) !important; color: var(--amber) !important; font-size: 20px !important;
+    box-shadow: none !important; flex-shrink: 0;
 }
-.mp-row.highlight {
-    background: linear-gradient(90deg, #FFF4E3, #FFE7C2);
-    border-left: 4px solid #FF9F1C;
-}
-.mp-row .mp-qty {
-    font-size: 18px;
-    color: #3E4C59;
-}
-.mp-row .mp-price {
-    font-size: 24px;
-    font-weight: 900;
-    color: #F07800;
-    margin: 0;
-    padding: 0;
-    position: static !important;
-}
-.mp-row .mp-discount {
-    background: #ff3b30;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-weight: 900;
-    font-size: 15px;
-}
-.mp-ribbon-wrap {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 65px;
-    height: 65px;
-    overflow: hidden;
-    z-index: 2;
-}
-.mp-ribbon-wrap .mp-ribbon {
-    position: absolute;
-    top: 14px;
-    right: -26px;
-    background: #ff7b00;
-    color: #000;
-    font-weight: 900;
-    font-size: 12px;
-    text-align: center;
-    width: 100px;
-    transform: rotate(45deg);
-    text-transform: uppercase;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+.benefits-checklist-new .benefit-text { font-size: 15px !important; line-height: 1.5 !important; color: var(--muted) !important; }
+.benefits-checklist-new .benefit-text strong {
+    display: block !important; font-family: 'Outfit', sans-serif; font-size: 18px !important; font-weight: 700 !important;
+    text-transform: none !important; color: var(--text) !important; text-shadow: none !important;
+    margin-bottom: 3px !important; letter-spacing: -.2px;
 }
 
-/* ===== ПАЛІТРА ПІД АВТОТОВАР — перекриває зовнішні css ===== */
-body { background: #F3F5F7; }
-.wrap { background: #F3F5F7; }
-.button,
-.btn-block .button,
-.order_form .button {
-    background: linear-gradient(135deg, #FF9F1C, #F07800) !important;
-    color: #fff !important;
-    border-color: #F07800 !important;
-    box-shadow: 0 8px 20px rgba(255,159,28,0.35) !important;
+/* Фото + текстові блоки */
+.img-text {
+    width: calc(100% - 32px) !important; margin: 24px 16px 0 !important; border-radius: var(--r);
+    box-shadow: 0 14px 40px rgba(14,17,22,.12);
 }
-.price_item.new .value,
-.price_item.new .text { color: #F07800 !important; }
-.price_item.old .value { color: #8a9694 !important; }
-.title span { color: #F07800 !important; }
-.order-list h4 { color: #FF9F1C !important; }
-.field:focus { border-color: #FF9F1C !important; outline: none; }
-.benefit_item { color: #1F2933 !important; }
+.b1 { padding: 0 !important; margin: 0 !important; background: none !important; }
+.slider-photo, .slider-photo .item { margin: 0 !important; padding: 0 !important; }
+.text-bg {
+    margin: 14px 16px 0 !important; padding: 22px 20px !important;
+    background: var(--card) !important; border: 1px solid var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: none !important; backdrop-filter: none !important;
+}
+.text-bg h3 {
+    font-family: 'Outfit', sans-serif !important; font-size: 21px !important; font-weight: 800 !important;
+    text-transform: none !important; letter-spacing: -.3px; color: var(--text) !important; margin: 0 0 10px !important;
+    padding-left: 14px; position: relative;
+}
+.text-bg h3::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 4px; background: var(--grad); }
+.text-bg p { font-size: 16px !important; line-height: 1.65 !important; color: #4A525E !important; margin: 0 !important; }
+.text-bg p strong { color: var(--text); }
+
+/* Відгуки (скриншоти) */
+.reviews-block { margin: 36px 0 0; }
+.reviews-title { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 800; text-align: center; color: var(--text); margin: 0 16px 16px; }
+.reviews-track {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 16px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.reviews-track::-webkit-scrollbar { display: none; }
+.reviews-track img {
+    flex: 0 0 78%; max-height: 520px; object-fit: contain; object-position: top;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    scroll-snap-align: center; box-shadow: 0 10px 30px rgba(14,17,22,.08);
+}
+.reviews-track img:only-child { flex-basis: 100%; }
+.reviews-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+/* Як замовити */
+.b1 .title { font-family: 'Outfit', sans-serif !important; font-size: 24px !important; font-weight: 800 !important; text-align: center; color: var(--text) !important; margin: 36px 16px 16px !important; }
+.b1 .title span { color: var(--text) !important; }
+.order-list { list-style: none !important; margin: 0 16px !important; padding: 0 !important; display: grid; gap: 10px; counter-reset: st; }
+.order-list li {
+    counter-increment: st; display: flex !important; align-items: center; gap: 14px;
+    background: var(--card) !important; border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px !important; margin: 0 !important; float: none !important; width: auto !important;
+}
+.order-list li::before {
+    content: counter(st); flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--grad); color: #140E00; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 17px;
+}
+.order-list .txt { padding: 0 !important; margin: 0 !important; }
+.order-list h4 { display: none !important; }
+.order-list p { margin: 0 !important; font-size: 16px !important; font-weight: 600; color: var(--text) !important; }
+
+/* ---------- НИЖНІЙ ЕКРАН З ФОРМОЮ ---------- */
+.today { margin: 0 !important; padding: 0 !important; background: var(--grad) !important; }
+.marquee-container { overflow: hidden; white-space: nowrap; padding: 11px 0; }
+.marquee-text {
+    display: inline-block; padding-left: 100%;
+    font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px; color: #140E00;
+    animation: marquee 16s linear infinite;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+.offer_section .offer > div[style*="text-align: center"] { color: #fff !important; font-family: 'Outfit', sans-serif; margin: 22px 0 14px !important; font-size: 24px !important; }
+.offer_section .offer > div[style*="text-align: center"] p { font-family: 'Inter', sans-serif; font-size: 15px; color: #A7AFBC; margin: 4px 0 0; }
+.order_form { display: grid; gap: 10px; margin: 0 !important; padding: 0 !important; background: none !important; }
+.order_form .field {
+    display: block; width: 100% !important; box-sizing: border-box; height: auto !important;
+    margin: 0 !important; padding: 16px 16px !important;
+    background: var(--ink-2) !important; color: #fff !important;
+    border: 1px solid var(--ink-3) !important; border-radius: 14px !important;
+    font-family: 'Inter', sans-serif !important; font-size: 16px !important; text-align: left !important;
+    -webkit-appearance: none; appearance: none; box-shadow: none !important;
+}
+.order_form select.field {
+    background-image: linear-gradient(45deg, transparent 50%, var(--amber) 50%), linear-gradient(135deg, var(--amber) 50%, transparent 50%) !important;
+    background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50% !important;
+    background-size: 6px 6px !important; background-repeat: no-repeat !important;
+}
+.order_form .field::placeholder { color: #7D8695; }
+.order_form .field:focus { border-color: var(--amber) !important; outline: none; }
+.order_form .button { margin-top: 4px !important; }
+.offer_section footer { background: none !important; padding: 18px 0 0 !important; }
+.offer_section footer div { color: #7D8695 !important; font-size: 13px !important; }
+.offer_section footer a { color: #A7AFBC !important; }
+
+/* ---------- ЛИПКА ПАНЕЛЬ ---------- */
+.sticky-bottom-bar {
+    position: fixed; bottom: 0; left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    width: 100%; max-width: 480px; box-sizing: border-box;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(14,17,22,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,.08);
+    z-index: 999; opacity: 0; pointer-events: none;
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s;
+}
+.sticky-bottom-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+.sticky-bottom-bar .price-info { color: #fff; }
+.sticky-bottom-bar .main-price { font-size: 24px; font-weight: 800; line-height: 1; }
+.sticky-bottom-bar .stock { margin-top: 4px; font-size: 12px; color: var(--amber); display: flex; align-items: center; gap: 6px; }
+.sticky-bottom-bar .stock::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
+.sticky-bottom-bar .btn-order {
+    background: var(--grad); color: #140E00; text-decoration: none;
+    font-size: 16px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 15px 30px; border-radius: 14px;
+    animation: btnPulse 2.4s infinite;
+}
 </style>
 </head>
 <body style="cursor: default;">
@@ -732,6 +481,25 @@ body { background: #F3F5F7; }
 </div>
 
 
+
+<?php
+// Відгуки: скриншоти з папки reviews/, додаються через admin.php. Немає скриншотів — блок прихований.
+$review_shots = [];
+foreach (is_dir(__DIR__ . '/reviews') ? scandir(__DIR__ . '/reviews') : [] as $f) {
+    if (preg_match('/^[\w-]+\.(jpg|png|webp)$/', $f)) $review_shots[] = $f;
+}
+rsort($review_shots);
+if ($review_shots): ?>
+<div class="reviews-block">
+    <h2 class="reviews-title">Відгуки покупців</h2>
+    <div class="reviews-track">
+        <?php foreach ($review_shots as $f): ?>
+        <img src="reviews/<?= $f ?>" alt="Відгук покупця" loading="lazy">
+        <?php endforeach; ?>
+    </div>
+    <?php if (count($review_shots) > 1): ?><div class="reviews-hint">Гортайте →</div><?php endif; ?>
+</div>
+<?php endif; ?>
 
 <section class="b1">
 <h2 class="title"><span>Як замовити?</span></h2>
