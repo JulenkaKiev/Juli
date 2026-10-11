@@ -22,7 +22,7 @@ if (!empty($_POST['website'])) {
 $name    = trim(strip_tags($_POST['name'] ?? ''));
 $phone   = preg_replace('/[^\d+]/', '', $_POST['phone'] ?? '');
 $package = ($_POST['package'] ?? '1') === '2' ? '2' : '1';
-$prices  = ['1' => 549, '2' => 949];
+$prices  = ['1' => 549, '2' => 848];
 
 if (mb_strlen($name) < 2 || strlen(preg_replace('/\D/', '', $phone)) < 10) {
     http_response_code(422);
