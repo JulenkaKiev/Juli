@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Поляризаційний козирок для авто — сонце більше не сліпить</title>
-  <meta name="description" content="Подовжувач сонцезахисного козирка з поляризаційним екраном і бічною шторкою. Захищає від низького сонця та відблисків. Ставиться за 1 хвилину." />
+  <meta name="description" content="Козирок 2 в 1 з поляризаційним екраном і бічною шторкою. Захищає від сонця спереду і збоку, прибирає відблиски. 799 грн, оплата при отриманні." />
   <style>
     :root {
       --bg: #0f1216;
@@ -27,7 +27,7 @@
       line-height: 1.5;
       padding-bottom: 84px;
     }
-    img { max-width: 100%; display: block; }
+    img, video { max-width: 100%; display: block; }
     .wrap { max-width: 520px; margin: 0 auto; padding: 0 16px; }
     section { padding: 32px 0; border-bottom: 1px solid var(--line); }
     h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
@@ -52,25 +52,25 @@
     }
     .btn:hover { background: var(--accent-dark); }
 
-    /* 1. Перший екран: банер 4:5, товар у дії, текст ≤ 20% */
+    /* Шапка: відео 4:5 */
     .main-screen { padding-top: 16px; }
     .banner {
       position: relative; aspect-ratio: 4 / 5;
-      border-radius: var(--radius); overflow: hidden;
-      background: #000 url("img/main.jpg") center 30% / cover no-repeat;
+      border-radius: var(--radius); overflow: hidden; background: #000;
     }
+    .banner video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .banner::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 38%, rgba(0,0,0,0) 60%, rgba(0,0,0,.8) 100%);
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 62%, rgba(0,0,0,.8) 100%);
     }
-    .banner > * { position: relative; z-index: 1; }
     .banner h1 {
+      position: relative; z-index: 1;
       font-size: 28px; font-weight: 800; padding: 18px 18px 0; margin: 0;
       text-shadow: 0 2px 8px rgba(0,0,0,.5);
     }
     .banner h1 span { color: var(--accent); }
     .banner .chips {
-      position: absolute; left: 0; right: 0; bottom: 0;
+      position: absolute; z-index: 1; left: 0; right: 0; bottom: 0;
       display: flex; flex-wrap: wrap; gap: 6px; padding: 16px;
     }
     .chip {
@@ -79,7 +79,7 @@
       padding: 6px 10px; border-radius: 999px;
     }
 
-    /* 2. Ціна + форма */
+    /* Ціна + форма */
     .price-row { display: flex; justify-content: space-around; align-items: center; text-align: center; margin: 18px 0 6px; }
     .price-label { font-size: 13px; color: var(--muted); text-transform: uppercase; }
     .price-old { font-size: 22px; color: var(--muted); text-decoration: line-through; }
@@ -107,7 +107,7 @@
     }
     .success h3 { color: var(--green); }
 
-    /* 3. Переваги — максимум 3 */
+    /* Переваги */
     .bullets { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
     .bullets li {
       background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -122,23 +122,8 @@
     .bullets h3 { margin-bottom: 4px; }
     .bullets p { margin: 0; }
 
-    /* Опис */
-    .list { margin: 0; padding-left: 20px; color: var(--muted); }
+    .list { margin: 0 0 12px; padding-left: 20px; color: var(--muted); }
     .list li { margin-bottom: 8px; }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .compare .col { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; font-size: 14px; }
-    .compare .col.good { border-color: var(--green); }
-    .compare h3 { font-size: 15px; }
-    .compare ul { margin: 0; padding-left: 16px; color: var(--muted); }
-    .compare li { margin-bottom: 6px; }
-    .situation { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 10px; }
-    .situation p { margin: 0; }
-    .situation .time {
-      flex: none; min-width: 76px;
-      background: rgba(255,138,31,.15); color: var(--accent);
-      font-weight: 800; font-size: 13px; text-align: center;
-      border-radius: 8px; padding: 6px 4px;
-    }
     table { width: 100%; border-collapse: collapse; }
     td { padding: 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
     td:first-child { color: var(--muted); padding-right: 12px; }
@@ -161,24 +146,7 @@
     .pack .p-old { color: var(--muted); text-decoration: line-through; }
     .pack .p-price { font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
 
-    /* Кроки замовлення */
-    .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
-    .steps li { counter-increment: step; position: relative; padding-left: 46px; margin-bottom: 16px; }
-    .steps li::before {
-      content: counter(step);
-      position: absolute; left: 0; top: -2px;
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--accent); color: #fff; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .steps p { margin: 0; }
-
-    details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
-    summary { font-weight: 700; cursor: pointer; }
-    details p { margin: 10px 0 0; }
-
     footer { text-align: center; font-size: 13px; color: var(--muted); padding: 24px 16px; }
-    footer a { color: var(--muted); }
 
     .sticky {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
@@ -207,44 +175,44 @@
 </head>
 <body>
 
-  <!-- 1. ПЕРШИЙ ЕКРАН -->
+  <!-- ШАПКА: відео + ціна + форма -->
   <section class="main-screen">
     <div class="wrap">
-      <div class="banner" role="img" aria-label="Поляризаційний козирок на штатному козирку авто">
+      <div class="banner">
+        <video src="img/main.mp4" poster="img/main.jpg" autoplay muted loop playsinline preload="auto" aria-label="Поляризаційний козирок на штатному козирку авто"></video>
         <h1>Сонце більше <span>не сліпить</span> за кермом</h1>
         <div class="chips">
-          <span class="chip">☀️ Від низького сонця</span>
-          <span class="chip">↔️ Закриває збоку</span>
-          <span class="chip">✨ Гасить відблиски</span>
+          <span class="chip">☀️ Захист спереду і збоку</span>
+          <span class="chip">✨ Без відблисків</span>
+          <span class="chip">⏱ Встановлення за 1 хв</span>
         </div>
       </div>
 
-      <!-- 2. ЦІНА + ФОРМА -->
       <div class="price-row">
         <div>
           <div class="price-label">Звичайна ціна</div>
-          <div class="price-old">899 грн</div>
+          <div class="price-old">1199 грн</div>
         </div>
         <div>
           <div class="price-new-label">Ціна сьогодні</div>
-          <div class="price-new">549 грн</div>
+          <div class="price-new">799 грн</div>
         </div>
       </div>
 
       <div id="order">
-        <div class="form-title">Залиште заявку та отримайте консультацію</div>
+        <div class="form-title">Залиште заявку — менеджер передзвонить і все уточнить</div>
         <form id="orderForm" action="order.php" method="post" novalidate>
           <div class="field">
             <select name="package" id="package">
-              <option value="1" data-price="549">1 козирок — 549 грн</option>
-              <option value="2" data-price="848">2 козирки (вигода 250 грн) — 848 грн</option>
+              <option value="1" data-price="799">1 козирок — 799 грн</option>
+              <option value="2" data-price="1348">2 козирки (вигода 250 грн) — 1348 грн</option>
             </select>
           </div>
-          <div class="field"><input type="text" name="name" placeholder="Введіть ваше ім'я" autocomplete="name" required /></div>
-          <div class="field"><input type="tel" name="phone" placeholder="Введіть ваш телефон" autocomplete="tel" required /></div>
+          <div class="field"><input type="text" name="name" placeholder="Ваше ім'я" autocomplete="name" required /></div>
+          <div class="field"><input type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required /></div>
           <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" />
-          <button type="submit" class="btn" id="submitBtn">Придбати</button>
-          <p class="form-note">Оплата при отриманні · Доставка Новою поштою<br><a href="#privacy">Політика конфіденційності</a></p>
+          <button type="submit" class="btn" id="submitBtn">Замовити зі знижкою</button>
+          <p class="form-note">Оплата при отриманні, без передоплати · <a href="#privacy">Політика конфіденційності</a></p>
         </form>
         <div class="success" id="success">
           <h3>Дякуємо, заявку прийнято!</h3>
@@ -254,179 +222,91 @@
     </div>
   </section>
 
-  <!-- 3. ПЕРЕВАГИ (максимум 3) -->
+  <!-- ПЕРЕВАГИ -->
   <section>
     <div class="wrap">
       <ul class="bullets">
-        <li><h3>Закриває сонце спереду і збоку одночасно</h3><p>Бічна шторка висувається на 26–27 см до бічного вікна, а лобове скло лишається захищеним.</p></li>
-        <li><h3>Поляризація гасить відблиски</h3><p>Мокрий асфальт, скло та хром машин попереду більше не б'ють в очі.</p></li>
-        <li><h3>Встановлення за 1 хвилину</h3><p>Два ремені на липучці, без інструментів. Підходить для більшості авто.</p></li>
+        <li><h3>Закриває сонце спереду і збоку</h3><p>Бічна шторка висувається до вікна, а лобове скло лишається під захистом.</p></li>
+        <li><h3>Прибирає сліпучі відблиски</h3><p>Поляризаційний екран гасить блиск мокрого асфальту і машин попереду. Дорогу видно чітко.</p></li>
+        <li><h3>Ставиться за 1 хвилину</h3><p>Два ремені на липучці. Без інструментів, на будь-який штатний козирок.</p></li>
       </ul>
     </div>
   </section>
 
-  <!-- 4. ЗНАЙОМА СИТУАЦІЯ (q1) -->
+  <!-- ЗНАЙОМА СИТУАЦІЯ -->
   <section>
     <div class="wrap">
       <div class="tag">Знайома ситуація?</div>
-      <h2>Штатний козирок не рятує</h2>
-      <p>Зранку і ввечері сонце світить під козирок прямо в очі. Повертаєш козирок до бічного вікна, і лобове скло знову відкрите. Доводиться мружитися і їхати майже наосліп, а після дощу ще й сліплять відблиски від дороги.</p>
+      <h2>Низьке сонце б'є прямо в очі</h2>
+      <p>Штатний козирок закриває або лобове скло, або бічне вікно. Зранку і ввечері сонце пробивається під нього, і ви їдете, мружачись. Це втома і ризик на дорозі.</p>
       <div class="photo"><img src="img/q1.jpg" alt="Водійка за кермом з опущеним поляризаційним козирком" /></div>
-      <p><b>Козирок 2 в 1</b> закриває обидві сторони одразу і працює як сонцезахисні окуляри для всього лобового скла.</p>
+      <p><b>Козирок 2 в 1 закриває обидва боки одразу.</b></p>
     </div>
   </section>
 
-  <!-- 5. ЩО ВХОДИТЬ У КОМПЛЕКТ (q2) -->
+  <!-- ЩО ВИ ОТРИМУЄТЕ -->
   <section>
     <div class="wrap">
-      <div class="tag">Що входить у комплект</div>
-      <h2>Три зони захисту в одному козирку</h2>
+      <div class="tag">Що ви отримуєте</div>
+      <h2>Три захисти в одному козирку</h2>
       <div class="photo"><img src="img/q2.jpg" alt="Козирок з висунутою шторкою та опущеним поляризаційним екраном" /></div>
-      <ol class="list">
-        <li><b>Основний корпус</b> з еко-шкіри кріпиться на штатний козирок. На ньому кишеня на блискавці для документів і карток.</li>
-        <li><b>Висувна бічна шторка</b> закриває сонце збоку та щілину між козирком і стійкою.</li>
-        <li><b>Поляризаційний екран</b> опускається під козирок і гасить сліпуче світло та відблиски.</li>
-        <li><b>Два ремені на липучці</b> для кріплення, обрізаються під ваш козирок.</li>
-      </ol>
+      <ul class="list">
+        <li><b>Корпус з еко-шкіри</b> з кишенею на блискавці для документів і карток.</li>
+        <li><b>Бічна шторка</b> висувається на 27 см і закриває сонце збоку.</li>
+        <li><b>Поляризаційний екран</b> опускається під козирок і гасить відблиски.</li>
+      </ul>
+      <p>Екран розрахований на світлий час доби. Уночі просто підніміть його.</p>
     </div>
   </section>
 
-  <!-- 6. ЧИМ ВІДРІЗНЯЄТЬСЯ ВІД ЗВИЧАЙНОГО КОЗИРКА -->
-  <section>
-    <div class="wrap">
-      <div class="tag">Порівняння</div>
-      <h2>Чим відрізняється від звичайного козирка</h2>
-      <div class="compare">
-        <div class="col">
-          <h3>Звичайний козирок</h3>
-          <ul>
-            <li>Закриває або перед, або бік</li>
-            <li>Низьке сонце проходить під ним</li>
-            <li>Від відблисків не допомагає</li>
-          </ul>
-        </div>
-        <div class="col good">
-          <h3>Козирок 2 в 1</h3>
-          <ul>
-            <li>Перед і бік одночасно</li>
-            <li>Екран опускається нижче</li>
-            <li>Поляризація гасить відблиски</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. КОЛИ ЩО ОПУСКАТИ (q3) -->
-  <section>
-    <div class="wrap">
-      <div class="tag">Протягом дня</div>
-      <h2>Коли що опускати</h2>
-      <div class="photo"><img src="img/q3.jpg" alt="Як козирок допомагає від прямого сонця і відблисків" /></div>
-      <div class="situation">
-        <div class="time">до 9:00<br>після 17:00</div>
-        <p><b>Низьке сонце.</b> Опустіть поляризаційний екран, а якщо сонце збоку, висуньте шторку.</p>
-      </div>
-      <div class="situation">
-        <div class="time">9:00–17:00</div>
-        <p><b>Яскравий день.</b> Екран разом зі звичайними сонцезахисними окулярами дає максимальний комфорт.</p>
-      </div>
-      <div class="situation">
-        <div class="time">весь день</div>
-        <p><b>Відблиски</b> від мокрої дороги, машин і вітрин гасить поляризаційний екран.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. ХАРАКТЕРИСТИКИ (q4) -->
+  <!-- ХАРАКТЕРИСТИКИ -->
   <section>
     <div class="wrap">
       <div class="tag">Характеристики</div>
-      <h2>Розміри</h2>
       <div class="photo" style="background:#fff"><img src="img/q4.jpg" alt="Розміри козирка" /></div>
       <table>
-        <tr><td>Основний корпус</td><td>31 × 13,5 см</td></tr>
-        <tr><td>Бічна шторка</td><td>26–27 × 11 см</td></tr>
-        <tr><td>Поляризаційний екран</td><td>26,5–27 × 12 см</td></tr>
-        <tr><td>Ремені кріплення</td><td>25–26 см, обрізаються</td></tr>
-        <tr><td>Матеріал корпусу</td><td>Еко-шкіра</td></tr>
-        <tr><td>Кишеня</td><td>На блискавці</td></tr>
-        <tr><td>Сумісність</td><td>Більшість легкових авто, SUV, вантажівки</td></tr>
+        <tr><td>Корпус</td><td>31 × 13,5 см</td></tr>
+        <tr><td>Бічна шторка</td><td>27 × 11 см</td></tr>
+        <tr><td>Поляризаційний екран</td><td>27 × 12 см</td></tr>
+        <tr><td>Кріплення</td><td>2 ремені на липучці</td></tr>
+        <tr><td>Підходить</td><td>Легкові авто, SUV, вантажівки</td></tr>
       </table>
     </div>
   </section>
 
-  <!-- 9. БЕРЕШ ДВА — ПЛАТИШ МЕНШЕ -->
+  <!-- БЕРЕШ ДВА — ПЛАТИШ МЕНШЕ -->
   <section>
     <div class="wrap">
-      <div class="tag">Вигідніше вдвох</div>
       <h2>Береш два — платиш менше</h2>
-      <p>Один для водія, другий для пасажира. Або по одному на два авто в родині.</p>
+      <p>Для водія і пасажира або для двох авто в родині.</p>
       <div class="packs">
         <div class="pack">
           <div class="p-title">1 козирок</div>
-          <div class="p-sub">Для водія</div>
-          <div class="p-old">899 грн</div>
-          <div class="p-price">549 грн</div>
+          <div class="p-old">1199 грн</div>
+          <div class="p-price">799 грн</div>
           <a href="#order" class="btn" data-pick="1">Замовити</a>
         </div>
         <div class="pack best">
           <div class="ribbon">Вигода 250 грн</div>
           <div class="p-title">2 козирки</div>
-          <div class="p-sub">Водій + пасажир</div>
-          <div class="p-old">1098 грн</div>
-          <div class="p-price">848 грн</div>
+          <div class="p-old">2398 грн</div>
+          <div class="p-price">1348 грн</div>
           <a href="#order" class="btn" data-pick="2">Замовити два</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 10. ЯК ЗАМОВИТИ -->
-  <section>
-    <div class="wrap">
-      <div class="tag">Як замовити</div>
-      <h2>4 простих кроки</h2>
-      <ol class="steps">
-        <li><p><b>Залиште заявку</b> на сайті: ім'я та телефон.</p></li>
-        <li><p><b>Менеджер зателефонує</b>, підтвердить замовлення та уточнить відділення.</p></li>
-        <li><p><b>Відправляємо Новою поштою</b> в день підтвердження.</p></li>
-        <li><p><b>Оплачуєте при отриманні</b>, після того як оглянете товар.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 11. ПИТАННЯ -->
-  <section>
-    <div class="wrap">
-      <div class="tag">Питання</div>
-      <h2>Часті запитання</h2>
-      <details>
-        <summary>Чи підійде до мого авто?</summary>
-        <p>Так, якщо у вас є штатний відкидний козирок. Ремені регулюються та обрізаються, тому козирок сідає на більшість легкових авто, позашляховиків і вантажівок.</p>
-      </details>
-      <details>
-        <summary>Чи можна їздити з екраном уночі?</summary>
-        <p>Ні. Поляризаційний екран затемнений і призначений для світлого часу доби. Уночі та в сутінках підніміть його.</p>
-      </details>
-      <details>
-        <summary>Чи не закриває він огляд?</summary>
-        <p>Екран прозорий і затемнює лише верхню частину лобового скла, як сонцезахисні окуляри. Коли він не потрібен, просто підніміть його разом з козирком.</p>
-      </details>
-    </div>
-  </section>
-
   <footer>
-    <a href="#order" class="btn" style="margin-bottom:20px">Замовити зі знижкою</a>
-    <div id="privacy">Політика конфіденційності: ім'я та телефон використовуються лише для обробки замовлення і не передаються третім особам.</div>
+    <div id="privacy">Ваші ім'я та телефон використовуються лише для оформлення замовлення і не передаються третім особам.</div>
     <div style="margin-top:8px">© <span id="year"></span> · Поляризаційний козирок для авто</div>
   </footer>
 
   <div class="sticky">
     <div class="wrap">
       <div>
-        <div class="s-old">899 грн</div>
-        <div class="s-price">549 грн</div>
+        <div class="s-old">1199 грн</div>
+        <div class="s-price">799 грн</div>
       </div>
       <a href="#order" class="btn">Замовити</a>
     </div>
@@ -467,7 +347,7 @@
         })
         .catch(function () {
           btn.disabled = false;
-          btn.textContent = 'Придбати';
+          btn.textContent = 'Замовити зі знижкою';
           alert('Не вдалося надіслати заявку. Спробуйте ще раз.');
         });
     });
