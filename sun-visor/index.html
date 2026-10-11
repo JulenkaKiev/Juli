@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>SunShield — поляризований козирок для авто | 799 грн</title>
-  <meta name="description" content="Поляризований козирок-подовжувач для авто: сонце більше не сліпить. Встановлення за 10 секунд. Доставка Новою Поштою, оплата при отриманні. 799 грн замість 1199." />
+  <meta name="description" content="Поляризований козирок-подовжувач з бічною шторкою: кріпиться на штатний козирок ремінцями, екран опускається бігунком. Оплата при отриманні. 799 грн замість 1199." />
   <meta name="theme-color" content="#0f1115" />
   <meta property="og:title" content="SunShield — сонце більше не сліпить за кермом" />
   <meta property="og:description" content="Поляризований козирок для авто. 799 грн замість 1199. Оплата при отриманні." />
@@ -63,7 +63,7 @@
       color: #1a1200;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 8px 24px rgba(255, 140, 0, .35);
-      transition: transform .15s ease, box-shadow .15s ease;
+      transition: transform .15s ease;
     }
     .btn:active { transform: scale(.98); }
     .btn.pulse { animation: pulse 2.2s infinite; }
@@ -93,37 +93,28 @@
 
     /* ---------- Hero ---------- */
     .hero { position: relative; padding: 28px 0 40px; overflow: hidden; }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; z-index: -2;
-      background: url("img/drive-sun.jpg") center/cover no-repeat;
-    }
-    .hero::after {
-      content: ""; position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(180deg, rgba(15,17,21,.55) 0%, rgba(15,17,21,.85) 45%, var(--bg) 100%);
-    }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("img/drive-sun.jpg") center/cover no-repeat; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,17,21,.55) 0%, rgba(15,17,21,.85) 45%, var(--bg) 100%); }
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255, 176, 32, .14); color: var(--accent);
       border: 1px solid rgba(255, 176, 32, .4);
-      font-size: 13px; font-weight: 800; padding: 6px 12px; border-radius: 999px;
-      margin-bottom: 14px;
+      font-size: 13px; font-weight: 800; padding: 6px 12px; border-radius: 999px; margin-bottom: 14px;
     }
     .hero h1 { font-size: 33px; line-height: 1.12; font-weight: 800; margin-bottom: 12px; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
-    .hero p.sub { color: #d6dae2; font-size: 16px; margin-bottom: 20px; }
+    .hero p.sub { color: #d6dae2; font-size: 16px; margin-bottom: 14px; }
+    .ticks { list-style: none; display: grid; gap: 6px; margin-bottom: 18px; font-weight: 700; font-size: 15px; }
+    .ticks li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 8px; }
     .hero-img {
       position: relative; border-radius: var(--radius); overflow: hidden;
-      border: 1px solid rgba(255,255,255,.12); margin-bottom: 22px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.12); margin-bottom: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.5);
     }
     .sale {
-      position: absolute; top: 12px; left: 12px;
+      position: absolute; top: 12px; left: 12px; z-index: 2;
       background: var(--red); color: #fff; font-weight: 800; font-size: 15px;
       padding: 6px 10px; border-radius: 10px; transform: rotate(-4deg);
     }
-    .price-box {
-      background: rgba(29, 33, 41, .85); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 16px; margin-bottom: 16px;
-    }
+    .price-box { background: rgba(29, 33, 41, .85); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
     .price-row { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
     .price { font-size: 44px; font-weight: 800; line-height: 1; color: var(--accent); }
     .price small { font-size: 20px; }
@@ -137,44 +128,75 @@
     }
     .trust b { display: block; font-size: 20px; margin-bottom: 4px; }
 
+    /* ---------- Анімація «як це працює» ---------- */
+    .demo { background: #0b0d11; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .demo svg { display: block; width: 100%; height: auto; }
+    .demo .anim { animation-duration: 10s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+    .demo .pull  { animation-name: pull; }
+    .demo .lens  { transform-box: fill-box; transform-origin: 50% 0; animation-name: lens; }
+    .demo .side  { animation-name: side; }
+    .demo .glare { animation-name: glare; }
+    .demo .hand  { animation-name: hand; }
+    @keyframes pull  { 0%, 10% { transform: translateY(0); } 30%, 88% { transform: translateY(38px); } 96%, 100% { transform: translateY(0); } }
+    @keyframes hand  { 0%, 6% { transform: translateY(0); opacity: 0; } 10% { opacity: 1; transform: translateY(0); } 30% { opacity: 1; transform: translateY(38px); } 36%, 100% { opacity: 0; transform: translateY(38px); } }
+    @keyframes lens  { 0%, 10% { transform: scaleY(0); } 30%, 88% { transform: scaleY(1); } 96%, 100% { transform: scaleY(0); } }
+    @keyframes side  { 0%, 42% { transform: translateX(0); } 60%, 88% { transform: translateX(-74px); } 96%, 100% { transform: translateX(0); } }
+    @keyframes glare { 0%, 10% { opacity: 1; } 30%, 88% { opacity: .25; } 96%, 100% { opacity: 1; } }
+    .demo-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px; }
+    .demo-steps div {
+      font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; line-height: 1.3;
+      padding: 8px 4px; border-radius: 10px; border: 1px solid var(--line);
+      animation: 10s infinite step-end;
+    }
+    .demo-steps b { display: block; font-size: 15px; }
+    .demo-steps .s1 { animation-name: s1; } .demo-steps .s2 { animation-name: s2; } .demo-steps .s3 { animation-name: s3; }
+    @keyframes s1 { 0% { color: var(--text); border-color: var(--accent); background: rgba(255,176,32,.1); } 10% { color: var(--muted); border-color: var(--line); background: none; } }
+    @keyframes s2 { 0% { color: var(--muted); border-color: var(--line); background: none; } 10% { color: var(--text); border-color: var(--accent); background: rgba(255,176,32,.1); } 42% { color: var(--muted); border-color: var(--line); background: none; } }
+    @keyframes s3 { 0% { color: var(--muted); border-color: var(--line); background: none; } 42% { color: var(--text); border-color: var(--accent); background: rgba(255,176,32,.1); } 92% { color: var(--muted); border-color: var(--line); background: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .demo .anim, .demo-steps div { animation: none; }
+      .demo .lens { transform: scaleY(1); } .demo .pull { transform: translateY(38px); } .demo .glare { opacity: .25; } .demo .hand { opacity: 0; }
+    }
+
+    /* ---------- Фото з підписами ---------- */
+    .hotspots { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+    .hotspots .dot {
+      position: absolute; transform: translate(-50%, -50%);
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--accent); color: #1a1200; font-weight: 800; font-size: 15px;
+      display: grid; place-items: center; box-shadow: 0 0 0 4px rgba(255,176,32,.35), 0 4px 12px rgba(0,0,0,.5);
+    }
+    .legend { list-style: none; display: grid; gap: 10px; margin-top: 16px; }
+    .legend li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+    .legend .n { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #1a1200; font-weight: 800; display: grid; place-items: center; }
+    .legend b { display: block; font-size: 15px; }
+    .legend span { color: var(--muted); font-size: 14px; }
+
     /* ---------- Фото-банер ---------- */
     .photo-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
     .photo-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-    .photo-card .cap {
-      position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,.85));
-      font-weight: 700; font-size: 15px;
-    }
+    .photo-card .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.85)); font-weight: 700; font-size: 15px; }
 
     /* ---------- Проблема ---------- */
     .pain { display: grid; gap: 10px; margin-top: 16px; }
-    .pain div {
-      display: flex; gap: 12px; align-items: flex-start;
-      background: var(--card); border-radius: 14px; padding: 14px; border: 1px solid var(--line); font-size: 15px;
-    }
+    .pain div { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border-radius: 14px; padding: 14px; border: 1px solid var(--line); font-size: 15px; }
     .pain i { font-style: normal; font-size: 22px; line-height: 1.1; }
 
     /* ---------- До / після ---------- */
     .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); user-select: none; -webkit-user-select: none; touch-action: pan-y; cursor: ew-resize; }
     .compare img { width: 100%; pointer-events: none; }
     .compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }
-    .compare .handle {
-      position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff;
-      transform: translateX(-50%); pointer-events: none;
-    }
+    .compare .handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff; transform: translateX(-50%); pointer-events: none; }
     .compare .handle::after {
       content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
       width: 42px; height: 42px; border-radius: 50%; background: #fff; color: #111;
       display: grid; place-items: center; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,.4);
     }
-    .compare .tag {
-      position: absolute; top: 10px; font-size: 12px; font-weight: 800;
-      background: rgba(0,0,0,.65); padding: 5px 9px; border-radius: 8px;
-    }
+    .compare .tag { position: absolute; top: 10px; font-size: 12px; font-weight: 800; background: rgba(0,0,0,.65); padding: 5px 9px; border-radius: 8px; }
     .compare .tag.l { left: 10px; } .compare .tag.r { right: 10px; color: var(--accent); }
     .hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; }
 
-    /* ---------- Сценарії (горизонтальна прокрутка) ---------- */
+    /* ---------- Сценарії ---------- */
     .scroller {
       display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px;
       overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--gutter) 8px;
@@ -190,27 +212,31 @@
     .dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--line); transition: background .2s, width .2s; }
     .dots span.on { background: var(--accent); width: 20px; border-radius: 4px; }
 
-    /* ---------- Переваги ---------- */
+    /* ---------- Картки переваг ---------- */
     .features { display: grid; gap: 12px; }
-    .feature {
-      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 18px; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start;
-    }
-    .feature .ico {
-      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
-      background: rgba(255, 176, 32, .12); font-size: 24px;
-    }
+    .feature { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
+    .feature .ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(255, 176, 32, .12); font-size: 24px; }
     .feature h3 { font-size: 17px; margin-bottom: 4px; }
     .feature p { color: var(--muted); font-size: 14px; }
 
-    /* ---------- Деталі товару ---------- */
+    /* ---------- Вигода ---------- */
+    .money { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .money > div { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+    .money .big { font-size: 30px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .money .big small { font-size: 16px; }
+    .money b { display: block; margin: 4px 0 2px; font-size: 15px; }
+    .money span { color: var(--muted); font-size: 13px; }
+
+    /* ---------- Деталі ---------- */
     .details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .details figure { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-    .details figure.wide { grid-column: 1 / -1; }
     .details img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-    .details figure.wide img { aspect-ratio: auto; }
     .details figcaption { padding: 10px 12px; font-size: 13px; font-weight: 700; }
     .details figcaption span { display: block; color: var(--muted); font-weight: 600; }
+
+    /* ---------- Розміри ---------- */
+    .dims { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; }
+    .dims svg { width: 100%; height: auto; display: block; }
 
     /* ---------- Порівняння ---------- */
     .vs { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 14px; }
@@ -225,27 +251,20 @@
 
     /* ---------- Встановлення ---------- */
     .steps { counter-reset: s; display: grid; gap: 14px; }
-    .step { display: flex; gap: 14px; align-items: center; font-size: 16px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; font-size: 16px; }
     .step::before {
       counter-increment: s; content: counter(s);
       flex: 0 0 42px; height: 42px; border-radius: 50%;
-      display: grid; place-items: center; font-weight: 800;
-      background: var(--accent); color: #1a1200;
+      display: grid; place-items: center; font-weight: 800; background: var(--accent); color: #1a1200;
     }
+    .step b { display: block; }
+    .step span { color: var(--muted); font-size: 14px; }
 
     /* ---------- Подарунок ---------- */
-    .gift {
-      background: linear-gradient(135deg, #2a2112, #1d2129 60%);
-      border: 1px solid rgba(255, 176, 32, .35); border-radius: 22px; padding: 22px 18px;
-    }
+    .gift { background: linear-gradient(135deg, #2a2112, #1d2129 60%); border: 1px solid rgba(255, 176, 32, .35); border-radius: 22px; padding: 22px 18px; }
     .gift .big { font-size: 44px; line-height: 1; margin-bottom: 10px; }
     .gift ul { list-style: none; display: grid; gap: 8px; margin: 14px 0 18px; }
     .gift li::before { content: "✓ "; color: var(--ok); font-weight: 800; }
-
-    /* ---------- Ціна за день ---------- */
-    .perday { text-align: center; }
-    .perday .num { font-size: 56px; font-weight: 800; color: var(--accent); line-height: 1; }
-    .perday .num small { font-size: 22px; }
 
     /* ---------- Характеристики ---------- */
     .specs { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -254,53 +273,34 @@
     .specs span:first-child { color: var(--muted); }
     .specs span:last-child { text-align: right; font-weight: 600; }
 
-    /* ---------- Доставка й гарантії ---------- */
+    /* ---------- Доставка ---------- */
     .del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .del-grid div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
     .del-grid i { font-style: normal; font-size: 26px; display: block; margin-bottom: 8px; }
     .del-grid b { display: block; font-size: 15px; margin-bottom: 2px; }
     .del-grid span { color: var(--muted); font-size: 13px; }
-    .guarantee {
-      margin-top: 14px; display: flex; gap: 14px; align-items: center;
-      background: rgba(61, 220, 132, .08); border: 1px solid rgba(61, 220, 132, .35);
-      border-radius: var(--radius); padding: 16px;
-    }
+    .guarantee { margin-top: 14px; display: flex; gap: 14px; align-items: center; background: rgba(61, 220, 132, .08); border: 1px solid rgba(61, 220, 132, .35); border-radius: var(--radius); padding: 16px; }
     .guarantee .seal { flex: 0 0 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--ok); color: #06210f; font-weight: 800; font-size: 14px; text-align: center; line-height: 1; }
     .guarantee p { font-size: 14px; color: #cfe9d9; }
 
-    /* ---------- Форма замовлення ---------- */
-    .order-card {
-      background: linear-gradient(180deg, #242835, var(--card));
-      border: 1px solid rgba(255, 176, 32, .4); border-radius: 22px; padding: 22px 18px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.35);
-    }
+    /* ---------- Форма ---------- */
+    .order-card { background: linear-gradient(180deg, #242835, var(--card)); border: 1px solid rgba(255, 176, 32, .4); border-radius: 22px; padding: 22px 18px; box-shadow: 0 20px 50px rgba(0,0,0,.35); }
     .order-head { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
     .order-head img { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
     .order-head b { display: block; font-size: 16px; line-height: 1.3; }
     .order-head span { color: var(--muted); font-size: 13px; }
     .qty { display: grid; gap: 10px; margin-bottom: 18px; }
-    .qty label {
-      position: relative; display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer;
-      transition: border-color .15s, background .15s;
-    }
+    .qty label { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer; transition: border-color .15s, background .15s; }
     .qty input { position: absolute; opacity: 0; pointer-events: none; }
     .qty label.on { border-color: var(--accent); background: rgba(255, 176, 32, .08); }
     .qty .name { font-weight: 800; }
     .qty .name small { display: block; color: var(--ok); font-size: 12px; font-weight: 700; }
     .qty .p { text-align: right; font-weight: 800; font-size: 18px; white-space: nowrap; line-height: 1.2; }
     .qty .p s { display: block; color: var(--muted); font-size: 13px; font-weight: 600; }
-    .qty .hit {
-      position: absolute; top: -10px; right: 12px; background: var(--red); color: #fff;
-      font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px;
-    }
+    .qty .hit { position: absolute; top: -10px; right: 12px; background: var(--red); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; }
     .field { margin-bottom: 12px; }
     .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
-    .field input {
-      width: 100%; height: 56px; padding: 0 16px; border-radius: 14px;
-      border: 1px solid var(--line); background: var(--bg); color: var(--text);
-      font-family: inherit; font-size: 16px; font-weight: 600; outline: none;
-    }
+    .field input { width: 100%; height: 56px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-family: inherit; font-size: 16px; font-weight: 600; outline: none; }
     .field input:focus { border-color: var(--accent); }
     .field input.err { border-color: var(--red); }
     .total { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; font-weight: 700; }
@@ -319,7 +319,7 @@
     .faq details[open] summary::after { transform: rotate(45deg); }
     .faq details p { padding: 0 16px 16px; color: var(--muted); font-size: 15px; }
 
-    /* ---------- Фінальний заклик ---------- */
+    /* ---------- Фінал ---------- */
     .final { position: relative; overflow: hidden; text-align: center; }
     .final::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("img/morning.jpg") center/cover; }
     .final::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, var(--bg), rgba(15,17,21,.75) 40%, rgba(15,17,21,.9)); }
@@ -329,14 +329,12 @@
     footer p + p { margin-top: 6px; }
     footer .credits { font-size: 11px; opacity: .7; }
 
-    /* ---------- Липка кнопка (мобільна) ---------- */
+    /* ---------- Липка кнопка ---------- */
     .sticky-cta {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
       padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-      background: rgba(15, 17, 21, .94);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid var(--line);
-      transition: transform .25s ease;
+      background: rgba(15, 17, 21, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line); transition: transform .25s ease;
     }
     .sticky-cta.hide { transform: translateY(110%); }
     .sticky-cta .inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
@@ -357,7 +355,8 @@
       .hero .hero-img { order: 2; margin: 0; }
       .hero h1 { font-size: 48px; }
       .features { grid-template-columns: 1fr 1fr 1fr; }
-      .pain { grid-template-columns: repeat(3, 1fr); }
+      .money { grid-template-columns: repeat(4, 1fr); }
+      .pain { grid-template-columns: 1fr 1fr; }
       .del-grid { grid-template-columns: repeat(4, 1fr); }
       .scroller { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); grid-auto-columns: auto; overflow: visible; margin: 0; padding: 0; }
       .dots { display: none; }
@@ -383,12 +382,17 @@
     <div class="wrap">
       <div class="hero-img">
         <span class="sale">−33%</span>
-        <img src="img/visor.jpg" alt="Поляризований козирок-подовжувач SunShield на сонцезахисному щитку авто" width="589" height="464" />
+        <img src="img/visor.jpg" alt="Поляризований козирок SunShield, закріплений на штатному сонцезахисному козирку авто" width="589" height="464" />
       </div>
       <div>
         <span class="badge">☀️ Must-have для кожного водія</span>
         <h1>Сонце більше <span class="accent">не сліпить</span> за кермом</h1>
-        <p class="sub">Поляризований козирок SunShield закриває очі від низького сонця та відблисків — ви бачите дорогу чітко, а не мружитеся наосліп. Встановлення за 10 секунд.</p>
+        <p class="sub">SunShield одягається на ваш штатний козирок і подовжує його донизу та вбік поляризованим екраном. Сліпуче сонце й відблиски — під контролем.</p>
+        <ul class="ticks">
+          <li>Кріпиться за 1 хвилину — без свердління й клею</li>
+          <li>Екран опускається одним рухом бігунка</li>
+          <li>Бокова шторка закриває сонце збоку</li>
+        </ul>
 
         <div class="price-box">
           <div class="price-row">
@@ -403,10 +407,113 @@
 
         <div class="trust">
           <div><b>🕶️</b>Поляризований екран</div>
-          <div><b>🚗</b>Підходить до більшості авто</div>
+          <div><b>🚗</b>Легковики, SUV, вантажівки</div>
           <div><b>🔍</b>Огляд перед оплатою</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== ЯК ЦЕ ПРАЦЮЄ (анімація) ===== -->
+  <section class="alt">
+    <div class="wrap narrow">
+      <div class="reveal">
+        <span class="eyebrow">Як це працює</span>
+        <h2>Опустили екран — <span class="accent">сонце приглушене</span></h2>
+        <p class="lead">SunShield висить на штатному козирку. Коли сонце сліпить — тягнете червоний бігунок униз, і поляризований екран виїжджає. Сонце збоку? Висуньте бокову шторку.</p>
+      </div>
+      <div class="demo reveal" aria-label="Анімація: бігунок опускає поляризований екран, бокова шторка висувається">
+        <svg viewBox="0 0 400 260" role="img">
+          <defs>
+            <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fffbe6" />
+              <stop offset=".25" stop-color="#ffe9a8" stop-opacity=".95" />
+              <stop offset="1" stop-color="#ffcc66" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9cc3d9" /><stop offset=".55" stop-color="#f3d9a4" /><stop offset="1" stop-color="#c9a46a" />
+            </linearGradient>
+            <clipPath id="glass"><path d="M0 22 H400 V200 Q200 214 0 200 Z" /></clipPath>
+          </defs>
+          <!-- вид через лобове скло -->
+          <g clip-path="url(#glass)">
+            <rect width="400" height="220" fill="url(#sky)" />
+            <path d="M0 160 L120 140 L200 150 L300 136 L400 152 V220 H0 Z" fill="#7d8a6a" />
+            <path d="M150 220 L196 146 L206 146 L260 220 Z" fill="#555a60" />
+            <path d="M201 152 V160 M201 170 V182 M201 194 V210" stroke="#f4f4f4" stroke-width="2" />
+            <circle class="anim glare" cx="232" cy="150" r="78" fill="url(#sun)" />
+          </g>
+          <!-- стеля й торпедо -->
+          <path d="M0 0 H400 V26 Q200 34 0 26 Z" fill="#2b2d31" />
+          <path d="M0 200 Q200 214 400 200 V260 H0 Z" fill="#16181c" />
+          <path d="M60 236 Q200 222 340 236" stroke="#2a2d33" stroke-width="10" fill="none" stroke-linecap="round" />
+
+          <!-- штатний козирок -->
+          <rect x="58" y="24" width="292" height="70" rx="10" fill="#9a9ea6" />
+          <circle cx="345" cy="30" r="6" fill="#7d8188" />
+
+          <!-- бокова шторка (за корпусом) -->
+          <g class="anim side">
+            <rect x="74" y="40" width="96" height="48" rx="6" fill="#26272b" />
+            <circle cx="82" cy="56" r="2.5" fill="#55575c" /><circle cx="82" cy="72" r="2.5" fill="#55575c" />
+          </g>
+
+          <!-- поляризований екран -->
+          <rect class="anim lens" x="96" y="96" width="220" height="74" rx="6" fill="#203a3c" fill-opacity=".62" stroke="#0e1416" stroke-width="2" />
+
+          <!-- корпус SunShield -->
+          <rect x="72" y="30" width="262" height="68" rx="7" fill="#1b1c1f" />
+          <rect x="72" y="30" width="262" height="68" rx="7" fill="none" stroke="#33353a" />
+          <!-- ремінці -->
+          <rect x="110" y="20" width="10" height="82" fill="#101113" />
+          <rect x="290" y="20" width="10" height="82" fill="#101113" />
+          <!-- доріжка блискавки -->
+          <rect x="198" y="38" width="6" height="54" rx="3" fill="#0c0d0f" />
+          <!-- бігунок -->
+          <g class="anim pull">
+            <rect x="195" y="38" width="12" height="16" rx="3" fill="#c9c9c9" />
+            <circle cx="201" cy="49" r="3.2" fill="#ff3b30" />
+          </g>
+          <!-- палець -->
+          <g class="anim hand" opacity="0">
+            <path d="M212 50 q10 -2 14 6 l2 16 q-6 6 -14 2 z" fill="#e8b89a" />
+            <path d="M210 42 l8 -4" stroke="#ffb020" stroke-width="3" stroke-linecap="round" />
+          </g>
+          <!-- підписи -->
+          <text x="200" y="248" fill="#9aa3b2" font-size="11" font-family="Manrope, sans-serif" text-anchor="middle">Ілюстрація роботи козирка</text>
+        </svg>
+        <div class="demo-steps">
+          <div class="s1"><b>1</b>Сонце сліпить</div>
+          <div class="s2"><b>2</b>Бігунок униз — екран виїжджає</div>
+          <div class="s3"><b>3</b>Бокова шторка — сонце збоку</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ДЕ РОЗМІЩУЄТЬСЯ ===== -->
+  <section>
+    <div class="wrap narrow">
+      <div class="reveal">
+        <span class="eyebrow">Де розміщується</span>
+        <h2>Одягається на штатний козирок</h2>
+        <p class="lead">Нічого не знімаєте й не переробляєте. SunShield фіксується двома ремінцями з пряжками прямо на сонцезахисному козирку вашого авто — з боку водія або пасажира.</p>
+      </div>
+      <div class="hotspots reveal">
+        <img src="img/visor.jpg" alt="SunShield на штатному козирку з позначеними деталями" loading="lazy" />
+        <span class="dot" style="left:96%;top:12%">1</span>
+        <span class="dot" style="left:44%;top:16%">2</span>
+        <span class="dot" style="left:70%;top:30%">3</span>
+        <span class="dot" style="left:62%;top:72%">4</span>
+        <span class="dot" style="left:9%;top:28%">5</span>
+      </div>
+      <ul class="legend reveal">
+        <li><span class="n">1</span><div><b>Штатний козирок авто</b><span>SunShield тримається на ньому і складається разом із ним.</span></div></li>
+        <li><span class="n">2</span><div><b>Корпус з екошкіри</b><span>Фіксується двома ремінцями з пряжками. Довжину ремінців підганяєте під свій козирок.</span></div></li>
+        <li><span class="n">3</span><div><b>Червоний бігунок</b><span>Потягнули вниз — екран виїхав, угору — сховався. Руками лінзу не торкаєтесь, тож на ній немає відбитків.</span></div></li>
+        <li><span class="n">4</span><div><b>Поляризований екран</b><span>Приглушує яскраве сонце й гасить відблиски, а дорогу при цьому добре видно.</span></div></li>
+        <li><span class="n">5</span><div><b>Бокова висувна шторка</b><span>Закриває щілину між козирком і стійкою, коли сонце світить збоку чи козирок повернутий до бокового вікна.</span></div></li>
+      </ul>
     </div>
   </section>
 
@@ -418,12 +525,12 @@
         <div class="cap">Знайома картина щоранку й щовечора?</div>
       </div>
       <div class="reveal">
-        <span class="eyebrow">Проблема</span>
-        <h2>Кілька секунд наосліп — і ви не бачите, що попереду</h2>
-        <p class="lead" style="margin-bottom:0">Штатний козирок закриває лише верх скла. А сонце найчастіше світить саме тоді, коли висить низько над дорогою — у годину пік.</p>
+        <span class="eyebrow">Навіщо це потрібно</span>
+        <h2>Штатний козирок закриває лише верх скла</h2>
+        <p class="lead" style="margin-bottom:0">А сонце найчастіше сліпить, коли висить низько над дорогою — саме в годину пік, дорогою на роботу й додому.</p>
         <div class="pain">
           <div><i>😣</i><span>Мружитеся, сповільнюєтесь, а позаду сигналять.</span></div>
-          <div><i>🌫️</i><span>Відблиски від мокрого асфальту, снігу та капота «засвічують» усе довкола.</span></div>
+          <div><i>🌫️</i><span>Відблиски від мокрого асфальту, снігу й капота «засвічують» усе довкола.</span></div>
           <div><i>🤕</i><span>Після дороги — втомлені очі й головний біль.</span></div>
           <div><i>⚠️</i><span>Пішохід чи світлофор, яких не видно в сонячному мареві, — реальний ризик.</span></div>
         </div>
@@ -431,13 +538,13 @@
     </div>
   </section>
 
-  <!-- ===== РІШЕННЯ: ДО / ПІСЛЯ ===== -->
+  <!-- ===== ДО / ПІСЛЯ ===== -->
   <section>
     <div class="wrap narrow">
       <div class="reveal">
-        <span class="eyebrow">Рішення</span>
-        <h2>Опустіть екран — і <span class="accent">дорога знову чітка</span></h2>
-        <p class="lead">Поляризаційний фільтр гасить сліпуче світло й відблиски, а дорога, знаки та машини попереду залишаються добре видимими.</p>
+        <span class="eyebrow">Результат</span>
+        <h2>Дорога знову <span class="accent">чітка</span></h2>
+        <p class="lead">Поляризаційний фільтр приглушує сліпуче світло й відблиски — машини, знаки й розмітку попереду видно краще.</p>
       </div>
       <div class="compare reveal" id="compare">
         <img src="img/city-sun.jpg" alt="Без козирка: сонце засліплює" />
@@ -446,7 +553,43 @@
         <span class="tag l">Без козирка</span>
         <span class="tag r">З SunShield</span>
       </div>
-      <p class="hint">👆 Потягніть повзунок, щоб побачити різницю · ілюстрація ефекту</p>
+      <p class="hint">👆 Потягніть повзунок · ілюстрація ефекту</p>
+    </div>
+  </section>
+
+  <!-- ===== ЗРУЧНІСТЬ ===== -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Чим зручно</span>
+        <h2>Продумано для щоденної їзди</h2>
+        <p class="lead">Ніяких окулярів, які треба шукати, вдягати й знімати в тунелі.</p>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><div class="ico">☝️</div><div><h3>Одним рухом</h3><p>Бігунок униз — екран на місці. Угору — сховався в корпус. Можна однією рукою, не відволікаючись від дороги.</p></div></div>
+        <div class="feature reveal"><div class="ico">✨</div><div><h3>Без відбитків на лінзі</h3><p>Ви тягнете за бігунок, а не за скло — екран лишається чистим і прозорим.</p></div></div>
+        <div class="feature reveal"><div class="ico">↔️</div><div><h3>Закриває і збоку</h3><p>Бокова шторка висувається там, де штатний козирок лишає щілину біля стійки.</p></div></div>
+        <div class="feature reveal"><div class="ico">🔁</div><div><h3>Складається разом із козирком</h3><p>Не потрібен — підняли штатний козирок, і SunShield не заважає та не впадає в око.</p></div></div>
+        <div class="feature reveal"><div class="ico">👨‍👩‍👧</div><div><h3>Для будь-кого за кермом</h3><p>Висить в авто постійно — користується кожен, хто сідає за кермо, і пасажир теж.</p></div></div>
+        <div class="feature reveal"><div class="ico">🚚</div><div><h3>Універсальний</h3><p>Ремінці підганяються під козирок легковика, кросовера, мінівена чи вантажівки.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ЧОМУ ВИГІДНО ===== -->
+  <section>
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Чому це вигідно</span>
+        <h2>Платите один раз — користуєтесь роками</h2>
+        <p class="lead">Одна покупка — і сонце більше не заважає щодня, роками.</p>
+      </div>
+      <div class="money reveal">
+        <div><div class="big"><span id="perDay">2,19</span> <small>грн</small></div><b>на день</b><span>якщо користуватися лише рік</span></div>
+        <div><div class="big">0 <small>грн</small></div><b>за встановлення</b><span>ставите самі за хвилину, без СТО</span></div>
+        <div><div class="big">1 <small>на авто</small></div><b>для всієї родини</b><span>не треба окуляри кожному водію</span></div>
+        <div><div class="big">−<span data-bundle-save="2">999</span></div><b>грн за 2 шт</b><span>для другого авто або пасажира</span></div>
+      </div>
     </div>
   </section>
 
@@ -456,93 +599,104 @@
       <div class="reveal">
         <span class="eyebrow">Кожен день</span>
         <h2>Рятує в будь-яку пору року</h2>
-        <p class="lead">Сонце сліпить не лише влітку. SunShield працює цілий рік.</p>
+        <p class="lead">Сонце сліпить не лише влітку.</p>
       </div>
       <div class="scroller" id="scroller">
         <article class="scene"><img src="img/morning.jpg" alt="Ранкове сонце світить у лобове скло" loading="lazy" /><div><h3>🌅 Ранок, дорога на роботу</h3><p>Сонце сходить просто по курсу — а ви спокійно їдете, не мружачись.</p></div></article>
         <article class="scene"><img src="img/drive-sun.jpg" alt="Водій їде назустріч сонцю ввечері" loading="lazy" /><div><h3>🌇 Вечір, дорога додому</h3><p>Захід сонця в очі після робочого дня — більше не проблема.</p></div></article>
-        <article class="scene"><img src="img/winter.jpg" alt="Зимова дорога зі сліпучим сонцем і снігом" loading="lazy" /><div><h3>❄️ Зима і сніг</h3><p>Низьке зимове сонце та сліпучий сніг — найнебезпечніша комбінація.</p></div></article>
-        <article class="scene"><img src="img/city-sun.jpg" alt="Місто в сонячному мареві" loading="lazy" /><div><h3>🏙️ Місто і траса</h3><p>Чітко бачите світлофори, знаки та гальмівні вогні попереду.</p></div></article>
+        <article class="scene"><img src="img/winter.jpg" alt="Зимова дорога зі сліпучим сонцем і снігом" loading="lazy" /><div><h3>❄️ Зима і сніг</h3><p>Низьке зимове сонце й сліпучий сніг — найнебезпечніша комбінація.</p></div></article>
+        <article class="scene"><img src="img/city-sun.jpg" alt="Місто в сонячному мареві" loading="lazy" /><div><h3>🏙️ Місто і траса</h3><p>Чітко бачите світлофори, знаки та стоп-сигнали попереду.</p></div></article>
       </div>
       <div class="dots" id="dots"><span class="on"></span><span></span><span></span><span></span></div>
     </div>
   </section>
 
-  <!-- ===== ПЕРЕВАГИ ===== -->
+  <!-- ===== ДЕТАЛІ ТА РОЗМІРИ ===== -->
   <section>
-    <div class="wrap">
-      <div class="reveal">
-        <span class="eyebrow">Переваги</span>
-        <h2>Чому водії обирають SunShield</h2>
-        <p class="lead">Маленький аксесуар, який робить кожну поїздку спокійнішою та безпечнішою.</p>
-      </div>
-      <div class="features">
-        <div class="feature reveal"><div class="ico">🕶️</div><div><h3>Поляризований екран</h3><p>Гасить сліпучі відблиски від сонця, мокрого асфальту, снігу й капота — як якісні поляризовані окуляри.</p></div></div>
-        <div class="feature reveal"><div class="ico">↕️</div><div><h3>Закриває там, де штатний не дістає</h3><p>Екран висувається нижче штатного козирка — саме туди, де висить низьке сонце.</p></div></div>
-        <div class="feature reveal"><div class="ico">👀</div><div><h3>Менше втоми для очей</h3><p>Не треба мружитися всю дорогу — приїжджаєте без напружених очей і головного болю.</p></div></div>
-        <div class="feature reveal"><div class="ico">🚙</div><div><h3>Універсальний</h3><p>Кріпиться на штатний козирок легковика, кросовера чи мінівена. Для водія і пасажира.</p></div></div>
-        <div class="feature reveal"><div class="ico">👜</div><div><h3>Кишеня на блискавці</h3><p>Права, техпаспорт, картки й чеки — завжди під рукою і не розлітаються салоном.</p></div></div>
-        <div class="feature reveal"><div class="ico">🛠️</div><div><h3>Без свердління й клею</h3><p>Одягли на козирок — готово. Так само легко зняти чи переставити в інше авто.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ДЕТАЛІ ===== -->
-  <section class="alt">
     <div class="wrap narrow">
       <div class="reveal">
         <span class="eyebrow">Деталі</span>
-        <h2>Продумано до дрібниць</h2>
-        <p class="lead">Стриманий чорний дизайн, який виглядає дорого в будь-якому салоні.</p>
+        <h2>Розміри та конструкція</h2>
+        <p class="lead">Екран і бокова шторка ховаються в корпус, коли не потрібні.</p>
       </div>
-      <div class="details reveal">
-        <figure class="wide"><img src="img/visor.jpg" alt="SunShield встановлений в авто" loading="lazy" /><figcaption>Встановлений на штатний козирок<span>Не заважає, коли складений</span></figcaption></figure>
-        <figure><img src="img/pocket.jpg" alt="Кишеня на блискавці" loading="lazy" /><figcaption>Кишеня на блискавці<span>Для документів і карток</span></figcaption></figure>
-        <figure><img src="img/lens.jpg" alt="Поляризований екран" loading="lazy" /><figcaption>Поляризований екран<span>Чіткий огляд дороги</span></figcaption></figure>
+      <div class="dims reveal">
+        <svg viewBox="0 0 400 300" role="img" aria-label="Схема розмірів">
+          <g font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#cfd4dc">
+            <!-- ремінці -->
+            <rect x="182" y="10" width="10" height="250" fill="#0c0d0f" />
+            <rect x="330" y="10" width="10" height="250" fill="#0c0d0f" />
+            <!-- бокова шторка -->
+            <rect x="20" y="102" width="150" height="62" rx="6" fill="#26272b" />
+            <circle cx="30" cy="122" r="3" fill="#55575c" /><circle cx="30" cy="144" r="3" fill="#55575c" />
+            <!-- лінза -->
+            <rect x="174" y="172" width="180" height="76" rx="6" fill="#4e6b5a" fill-opacity=".85" />
+            <!-- корпус -->
+            <rect x="160" y="92" width="208" height="80" rx="7" fill="#1b1c1f" stroke="#3a3c42" />
+            <rect x="262" y="104" width="6" height="56" rx="3" fill="#0c0d0f" />
+            <rect x="259" y="146" width="12" height="14" rx="3" fill="#c9c9c9" /><circle cx="265" cy="155" r="3" fill="#ff3b30" />
+            <!-- розміри -->
+            <g stroke="#ffb020" stroke-width="1.5">
+              <path d="M160 82 H368 M160 77 V87 M368 77 V87" />
+              <path d="M380 92 V172 M375 92 H385 M375 172 H385" />
+              <path d="M20 182 H150 M20 177 V187 M150 177 V187" />
+              <path d="M174 262 H354 M174 257 V267 M354 257 V267" />
+              <path d="M380 172 V248 M375 248 H385" />
+            </g>
+            <text x="264" y="74" text-anchor="middle">≈ 31,5 см</text>
+            <text x="392" y="136" text-anchor="middle" transform="rotate(90 392 136)">13,5 см</text>
+            <text x="85" y="200" text-anchor="middle">бокова шторка ≈ 27 см</text>
+            <text x="264" y="284" text-anchor="middle">екран ≈ 27 × 12,5 см</text>
+            <text x="60" y="40" fill="#9aa3b2" font-weight="600">ремінці ≈ 26 см,</text>
+            <text x="60" y="56" fill="#9aa3b2" font-weight="600">підрізаються під козирок</text>
+          </g>
+        </svg>
+      </div>
+      <div class="details reveal" style="margin-top:12px">
+        <figure><img src="img/slider.jpg" alt="Червоний бігунок, що опускає екран" loading="lazy" /><figcaption>Бігунок<span>Керує екраном без дотику до лінзи</span></figcaption></figure>
+        <figure><img src="img/lens.jpg" alt="Поляризований екран" loading="lazy" /><figcaption>Поляризований екран<span>Дорогу видно чітко</span></figcaption></figure>
       </div>
     </div>
   </section>
 
   <!-- ===== ПОРІВНЯННЯ ===== -->
-  <section>
+  <section class="alt">
     <div class="wrap narrow">
       <div class="reveal">
         <span class="eyebrow">Порівняння</span>
-        <h2>Чому не просто окуляри?</h2>
-        <p class="lead">Окуляри треба шукати, вдягати й знімати — а в тунелі чи тіні вони тільки заважають.</p>
+        <h2>Чим краще за звичайний козирок</h2>
+        <p class="lead">І чому зручніше, ніж постійно тримати окуляри під рукою.</p>
       </div>
       <table class="vs reveal">
-        <thead><tr><th></th><th class="us">SunShield</th><th>Штатний козирок</th><th>Окуляри</th></tr></thead>
+        <thead><tr><th></th><th class="us">SunShield</th><th>Штатний козирок</th><th>Сонячні окуляри</th></tr></thead>
         <tbody>
           <tr><td>Закриває низьке сонце</td><td class="us yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
           <tr><td>Гасить відблиски</td><td class="us yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
-          <tr><td>Прибрати за 1 секунду</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
-          <tr><td>Для водія й пасажира</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
-          <tr><td>Не губиться в салоні</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
-          <tr><td>Кишеня для документів</td><td class="us yes">✓</td><td class="no">✕</td><td class="no">✕</td></tr>
+          <tr><td>Прибрати за секунду</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+          <tr><td>Не треба вдягати</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+          <tr><td>Для кожного водія авто</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <!-- ===== ВСТАНОВЛЕННЯ ===== -->
-  <section class="alt">
+  <section>
     <div class="wrap narrow">
       <div class="reveal">
         <span class="eyebrow">Встановлення</span>
-        <h2>3 кроки — 10 секунд</h2>
+        <h2>3 кроки — близько хвилини</h2>
         <p class="lead">Жодних інструментів. Впорається будь-хто.</p>
       </div>
       <div class="steps reveal">
-        <div class="step">Опустіть штатний сонцезахисний козирок.</div>
-        <div class="step">Одягніть SunShield і зафіксуйте кріплення.</div>
-        <div class="step">Висуньте поляризований екран — і в дорогу!</div>
+        <div class="step"><div><b>Приміряйте ремінці</b><span>Накиньте ремінці на штатний козирок і за потреби підріжте зайве.</span></div></div>
+        <div class="step"><div><b>Застебніть пряжки</b><span>SunShield щільно сідає на козирок і не теліпається під час руху.</span></div></div>
+        <div class="step"><div><b>Зніміть плівку з екрана</b><span>Тягніть бігунок униз — і в дорогу.</span></div></div>
       </div>
     </div>
   </section>
 
   <!-- ===== ПОДАРУНОК ===== -->
-  <section>
+  <section class="alt">
     <div class="wrap narrow">
       <div class="gift reveal">
         <div class="big">🎁</div>
@@ -558,16 +712,6 @@
     </div>
   </section>
 
-  <!-- ===== ЦІНА ЗА ДЕНЬ ===== -->
-  <section class="alt">
-    <div class="wrap narrow perday reveal">
-      <span class="eyebrow">Чесна ціна</span>
-      <div class="num"><span id="perDay">2,19</span> <small>грн</small></div>
-      <h2 style="margin-top:8px">на день протягом року</h2>
-      <p class="lead">Це близько <span id="perMonth">67</span> грн на місяць — ціна однієї кави за спокій і безпеку кожної поїздки.</p>
-    </div>
-  </section>
-
   <!-- ===== ХАРАКТЕРИСТИКИ ===== -->
   <section>
     <div class="wrap narrow">
@@ -577,16 +721,17 @@
       </div>
       <div class="specs reveal" style="margin-top:20px">
         <div><span>Тип</span><span>Козирок-подовжувач</span></div>
-        <div><span>Екран</span><span>Поляризований, тонований</span></div>
-        <div><span>Корпус</span><span>Екошкіра, чорний</span></div>
-        <div><span>Кріплення</span><span>На штатний козирок</span></div>
-        <div><span>Додатково</span><span>Кишеня на блискавці</span></div>
-        <div><span>Сумісність</span><span>Більшість легкових авто</span></div>
+        <div><span>Екран</span><span>Поляризований, висувний</span></div>
+        <div><span>Керування</span><span>Бігунок-блискавка</span></div>
+        <div><span>Бокова шторка</span><span>Висувна, ≈ 27 см</span></div>
+        <div><span>Корпус</span><span>Екошкіра, ≈ 31,5 × 13,5 см</span></div>
+        <div><span>Кріплення</span><span>2 ремінці з пряжками</span></div>
+        <div><span>Сумісність</span><span>Легкові, SUV, вантажні</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ДОСТАВКА І ГАРАНТІЇ ===== -->
+  <!-- ===== ДОСТАВКА ===== -->
   <section class="alt">
     <div class="wrap">
       <div class="reveal">
@@ -661,11 +806,13 @@
     <div class="wrap narrow">
       <span class="eyebrow">Питання</span>
       <h2 style="margin-bottom:20px">Часті запитання</h2>
-      <details><summary>Чи підійде до мого авто?</summary><p>Так, козирок кріпиться на штатний сонцезахисний щиток і підходить для більшості легкових авто, кросоверів і мінівенів. Якщо сумніваєтесь — менеджер підкаже при дзвінку.</p></details>
-      <details><summary>Чи не заважає огляду?</summary><p>Екран прозорий і лише приглушує яскраве світло та відблиски — дорогу видно чітко. Коли сонця немає, його легко прибрати.</p></details>
-      <details><summary>Чи можна користуватися вночі?</summary><p>Ні, екран тонований і призначений для денного сонця. Увечері та вночі просто приберіть його.</p></details>
-      <details><summary>Як оплатити?</summary><p>Оплата при отриманні на відділенні Нової Пошти. Спершу оглядаєте товар — потім платите.</p></details>
-      <details><summary>Скільки триває доставка?</summary><p>Відправляємо протягом 1–2 робочих днів, доставка Новою Поштою зазвичай займає 1–3 дні.</p></details>
+      <details><summary>Куди саме він кріпиться?</summary><p>На штатний сонцезахисний козирок вашого авто — двома ремінцями з пряжками. Можна поставити з боку водія або пасажира.</p></details>
+      <details><summary>Чи підійде до мого авто?</summary><p>Ремінці регулюються й підрізаються, тому SunShield підходить для більшості легкових авто, кросоверів, мінівенів і вантажівок. Сумніваєтесь — менеджер підкаже при дзвінку.</p></details>
+      <details><summary>Для чого червона блискавка?</summary><p>Це бігунок, що керує екраном: униз — екран виїжджає, угору — ховається в корпус. Так лінза лишається без відбитків пальців.</p></details>
+      <details><summary>Чи не заважає огляду?</summary><p>Екран прозорий і лише приглушує яскраве світло та відблиски. Коли сонця немає — сховайте його бігунком або підніміть штатний козирок.</p></details>
+      <details><summary>Чи повністю замінює сонячні окуляри?</summary><p>У більшості ситуацій окуляри не потрібні. Але коли сонце висить прямо по курсу на світанку чи заході, для максимального комфорту SunShield можна поєднувати з сонячними окулярами.</p></details>
+      <details><summary>Чи можна користуватися вночі?</summary><p>Ні, екран тонований і призначений для денного сонця. Увечері та вночі просто сховайте його.</p></details>
+      <details><summary>Як оплатити і скільки йде доставка?</summary><p>Оплата при отриманні на Новій Пошті, спершу оглядаєте товар. Відправляємо за 1–2 робочі дні, доставка зазвичай 1–3 дні.</p></details>
       <details><summary>Чи можна повернути?</summary><p>Так, протягом 14 днів згідно із законом «Про захист прав споживачів».</p></details>
     </div>
   </section>
@@ -684,7 +831,7 @@
       <p><b>SunShield</b> · Аксесуари для авто</p>
       <p>📞 +38 (000) 000-00-00 · Пн–Нд 9:00–20:00</p>
       <p>© 2026 Усі права захищено</p>
-      <p class="credits">Фото: Unsplash (Unsplash License). Зображення «з SunShield» — ілюстрація ефекту.</p>
+      <p class="credits">Фото доріг: Unsplash (Unsplash License). Анімація та зображення «з SunShield» — ілюстрації. Розміри приблизні, ±1 см.</p>
     </div>
   </footer>
 
@@ -709,7 +856,6 @@
     $$('[data-bundle]').forEach(el => el.textContent = PRICES.bundles[el.dataset.bundle]);
     $$('[data-bundle-old]').forEach(el => el.textContent = PRICES.old * el.dataset.bundleOld);
     $$('[data-bundle-save]').forEach(el => { const n = +el.dataset.bundleSave; el.textContent = PRICES.old * n - PRICES.bundles[n]; });
-    document.getElementById('perMonth').textContent = Math.round(PRICES.bundles[1] / 12);
     document.getElementById('perDay').textContent = (PRICES.bundles[1] / 365).toFixed(2).replace('.', ',');
 
     const totalEl = document.getElementById('total');
@@ -772,11 +918,12 @@
     window.addEventListener('pointermove', e => { if (drag) setPos(e.clientX); });
     window.addEventListener('pointerup', () => drag = false);
 
-    // ===== Точки під горизонтальною галереєю =====
+    // ===== Точки під галереєю =====
     const scroller = document.getElementById('scroller');
     const dots = document.querySelectorAll('#dots span');
     scroller.addEventListener('scroll', () => {
-      const i = Math.round(scroller.scrollLeft / (scroller.scrollWidth - scroller.clientWidth) * (dots.length - 1)) || 0;
+      const max = scroller.scrollWidth - scroller.clientWidth;
+      const i = max > 0 ? Math.round(scroller.scrollLeft / max * (dots.length - 1)) : 0;
       dots.forEach((d, k) => d.classList.toggle('on', k === i));
     }, { passive: true });
 
