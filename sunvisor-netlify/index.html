@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=480" name="viewport"/>
+<title>Поляризаційний козирок для авто — сонце більше не сліпить</title>
+<meta content="Козирок 2 в 1 з поляризаційним екраном і бічною шторкою. Захищає від сонця спереду і збоку, прибирає відблиски. Оплата при отриманні." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1627430141996907');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1627430141996907&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+/* ===== ДИЗАЙН: преміальний автотовар — графіт + бурштин =====
+   Стилі повні й самодостатні: перекривають зовнішні css шаблону. */
+:root {
+    --ink: #0E1116;
+    --ink-2: #171B22;
+    --ink-3: #232934;
+    --paper: #F4F5F7;
+    --card: #FFFFFF;
+    --text: #1C2129;
+    --muted: #6B7380;
+    --line: #E4E7EC;
+    --amber: #FFB020;
+    --amber-2: #FF7A00;
+    --grad: linear-gradient(135deg, #FFB020 0%, #FF7A00 100%);
+    --r: 18px;
+}
+html, body {
+    margin: 0 !important;
+    background: var(--ink) !important;
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    color: var(--text);
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+}
+.wrap {
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    background: var(--paper) !important;
+    overflow: hidden;
+}
+img, video { max-width: 100%; display: block; }
+h1, h2, h3, h4, .mp-price, .value, .main-price, .button, .btn-order { font-family: 'Outfit', sans-serif !important; }
+
+/* ---------- ЗАГОЛОВОК ---------- */
+.offer_section { background: var(--ink) !important; color: #fff; padding: 0 !important; margin: 0 !important; }
+.main-title-box { padding: 26px 22px 18px !important; text-align: left !important; margin: 0 !important; }
+.main-title-box h1 {
+    background: none !important; border: 0 !important; box-shadow: none !important; text-shadow: none !important;
+    padding: 0 !important; margin: 0 !important;
+    color: #fff !important; font-size: 30px !important; line-height: 1.08 !important;
+    font-weight: 800 !important; letter-spacing: -0.5px !important; text-transform: uppercase;
+}
+.main-title-box h1::before {
+    content: 'Новинка · 2 в 1' !important;
+    display: table; margin-bottom: 12px;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--amber); border: 1px solid rgba(255,176,32,.45); border-radius: 999px; padding: 5px 12px;
+}
+.main-title-box h1 span {
+    display: block; margin-top: 10px;
+    font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0;
+    font-size: 15px !important; font-weight: 500 !important; line-height: 1.5; color: #A7AFBC;
+}
+
+/* ---------- ПЕРШИЙ ЕКРАН ---------- */
+.offer { padding: 0 16px 26px !important; margin: 0 !important; background: none !important; text-align: center; }
+.offer > img, .offer > video {
+    width: 100% !important; border-radius: var(--r); aspect-ratio: 4 / 5; object-fit: cover;
+    box-shadow: 0 24px 60px rgba(0,0,0,.55); margin: 0 auto !important;
+}
+.benefits_list { display: flex !important; gap: 8px; margin: 16px 0 0 !important; padding: 0 !important; }
+.benefits_list::before, .benefits_list::after { display: none !important; }
+.benefit_item {
+    flex: 1; float: none !important; width: auto !important; margin: 0 !important;
+    background: var(--ink-2) !important; border: 1px solid var(--ink-3);
+    border-radius: 12px; padding: 10px 6px !important;
+    color: #D5DAE1 !important; font-size: 12px !important; font-weight: 600; line-height: 1.3 !important;
+    text-align: center;
+}
+.benefit_item::before { content: '✓'; display: block; color: var(--amber); font-weight: 800; margin-bottom: 2px; background: none !important; position: static !important; width: auto !important; height: auto !important; }
+
+.price_block {
+    display: flex !important; align-items: stretch; gap: 10px;
+    margin: 12px 0 0 !important; padding: 0 !important; background: none !important;
+}
+.price_block::before, .price_block::after { display: none !important; }
+.price_item {
+    flex: 1; float: none !important; width: auto !important; margin: 0 !important;
+    border-radius: 14px; padding: 14px 10px !important; text-align: center;
+    display: flex; flex-direction: column; justify-content: center; opacity: 1 !important;
+}
+.price_item.old { background: var(--ink-2) !important; border: 1px solid var(--ink-3); }
+.price_item.new { background: var(--grad) !important; box-shadow: 0 10px 30px rgba(255,122,0,.35); }
+.price_item .text {
+    font-family: 'Inter', sans-serif !important; font-size: 11px !important; line-height: 1.2 !important;
+    font-weight: 700 !important; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 4px !important;
+}
+.price_item.old .text { color: #8A93A1 !important; }
+.price_item.new .text, .price_item.new .text span { color: #1B1300 !important; }
+.price_item .value { font-size: 30px !important; font-weight: 800 !important; line-height: 1 !important; margin: 0 !important; }
+.price_item.old .value { color: #8A93A1 !important; text-decoration: line-through; font-size: 24px !important; }
+.price_item.new .value { color: #140E00 !important; font-size: 34px !important; }
+.offer > br { display: none; }
+
+/* ---------- КНОПКИ ---------- */
+.btn-block { margin: 14px 0 0 !important; }
+.button, .order_form .button, .btn-block .button {
+    display: block !important; width: 100% !important; box-sizing: border-box;
+    background: var(--grad) !important; color: #140E00 !important;
+    border: 0 !important; border-radius: 14px !important;
+    padding: 18px 16px !important; margin: 0 !important;
+    font-size: 18px !important; font-weight: 800 !important; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none !important; text-align: center;
+    box-shadow: 0 12px 30px rgba(255,122,0,.35) !important;
+    cursor: pointer; transition: transform .15s ease;
+    animation: btnPulse 2.4s infinite;
+}
+.button:active { transform: scale(.98); }
+.button .animate-ping, .button > span.flex { display: none !important; }
+@keyframes btnPulse {
+    0% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 0 rgba(255,176,32,.55); }
+    70% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 14px rgba(255,176,32,0); }
+    100% { box-shadow: 0 12px 30px rgba(255,122,0,.35), 0 0 0 0 rgba(255,176,32,0); }
+}
+
+/* ---------- ОСНОВНИЙ КОНТЕНТ ---------- */
+.generate { background: var(--paper) !important; padding: 8px 0 40px !important; margin: 0 !important; }
+
+/* Береш два */
+.multi-pack-offer {
+    width: auto !important; max-width: none !important; margin: 24px 16px !important;
+    background: var(--card) !important; border: 1px solid var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: 0 10px 30px rgba(14,17,22,.06) !important; padding: 20px 0 0 !important; overflow: hidden;
+    font-family: 'Inter', sans-serif !important; color: var(--text) !important;
+}
+.multi-pack-offer h2 { font-size: 20px !important; font-weight: 800 !important; letter-spacing: .5px !important; color: var(--text) !important; margin: 0 0 16px !important; }
+.mp-row { position: relative; display: flex !important; align-items: center; gap: 12px; background: var(--card) !important; border-top: 1px solid var(--line) !important; padding: 18px 16px !important; justify-content: space-between !important; }
+.mp-row .mp-qty { font-size: 17px !important; font-weight: 600; color: var(--muted) !important; }
+.mp-row .mp-price { font-size: 26px !important; color: var(--text) !important; margin-left: auto !important; }
+.mp-row.highlight { background: #FFF8EC !important; border-left: 0 !important; box-shadow: inset 4px 0 0 var(--amber-2); }
+.mp-row.highlight .mp-price { color: var(--amber-2) !important; }
+.mp-row .mp-discount { padding: 5px 10px; font-weight: 800; background: var(--ink) !important; color: var(--amber) !important; font-size: 14px !important; border-radius: 8px !important; margin-right: 40px; }
+.mp-ribbon-wrap { position: absolute; top: 0; right: 0; width: 65px; height: 65px; overflow: hidden; }
+.mp-ribbon-wrap .mp-ribbon { position: absolute; top: 14px; right: -26px; width: 100px; transform: rotate(45deg); text-align: center; font-weight: 800; padding: 2px 0; background: var(--amber-2) !important; color: #fff !important; font-size: 11px !important; letter-spacing: 1px; }
+
+/* Переваги */
+.benefits-checklist-new { display: grid !important; gap: 12px !important; margin: 0 16px 24px !important; padding: 0 !important; max-width: none !important; }
+.benefits-checklist-new .benefit-item {
+    display: flex; align-items: flex-start !important; gap: 14px !important;
+    background: var(--card) !important; border: 1px solid var(--line); border-radius: var(--r);
+    padding: 18px 16px;
+}
+.benefits-checklist-new .benefit-icon {
+    width: 40px !important; height: 40px !important; border: 0 !important; border-radius: 12px !important;
+    display: flex !important; align-items: center; justify-content: center; font-weight: 800;
+    background: var(--ink) !important; color: var(--amber) !important; font-size: 20px !important;
+    box-shadow: none !important; flex-shrink: 0;
+}
+.benefits-checklist-new .benefit-text { font-size: 15px !important; line-height: 1.5 !important; color: var(--muted) !important; }
+.benefits-checklist-new .benefit-text strong {
+    display: block !important; font-family: 'Outfit', sans-serif; font-size: 18px !important; font-weight: 700 !important;
+    text-transform: none !important; color: var(--text) !important; text-shadow: none !important;
+    margin-bottom: 3px !important; letter-spacing: -.2px;
+}
+
+/* Фото + текстові блоки */
+.img-text {
+    width: calc(100% - 32px) !important; margin: 24px 16px 0 !important; border-radius: var(--r);
+    box-shadow: 0 14px 40px rgba(14,17,22,.12);
+}
+.b1 { padding: 0 !important; margin: 0 !important; background: none !important; }
+.slider-photo, .slider-photo .item { margin: 0 !important; padding: 0 !important; }
+.text-bg {
+    margin: 14px 16px 0 !important; padding: 22px 20px !important;
+    background: var(--card) !important; border: 1px solid var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: none !important; backdrop-filter: none !important;
+}
+.text-bg h3 {
+    font-family: 'Outfit', sans-serif !important; font-size: 21px !important; font-weight: 800 !important;
+    text-transform: none !important; letter-spacing: -.3px; color: var(--text) !important; margin: 0 0 10px !important;
+    padding-left: 14px; position: relative;
+}
+.text-bg h3::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 4px; background: var(--grad); }
+.text-bg p { font-size: 16px !important; line-height: 1.65 !important; color: #4A525E !important; margin: 0 !important; }
+.text-bg p strong { color: var(--text); }
+
+/* Відгуки (скриншоти) */
+.reviews-block { margin: 36px 0 0; }
+.reviews-title { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 800; text-align: center; color: var(--text); margin: 0 16px 16px; }
+.reviews-track {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 16px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.reviews-track::-webkit-scrollbar { display: none; }
+.reviews-track img {
+    flex: 0 0 78%; max-height: 520px; object-fit: contain; object-position: top;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    scroll-snap-align: center; box-shadow: 0 10px 30px rgba(14,17,22,.08);
+}
+.reviews-track img:only-child { flex-basis: 100%; }
+.reviews-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+/* Як замовити */
+.b1 .title { font-family: 'Outfit', sans-serif !important; font-size: 24px !important; font-weight: 800 !important; text-align: center; color: var(--text) !important; margin: 36px 16px 16px !important; }
+.b1 .title span { color: var(--text) !important; }
+.order-list { list-style: none !important; margin: 0 16px !important; padding: 0 !important; display: grid; gap: 10px; counter-reset: st; }
+.order-list li {
+    counter-increment: st; display: flex !important; align-items: center; gap: 14px;
+    background: var(--card) !important; border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px !important; margin: 0 !important; float: none !important; width: auto !important;
+}
+.order-list li::before {
+    content: counter(st); flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--grad); color: #140E00; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 17px;
+}
+.order-list .txt { padding: 0 !important; margin: 0 !important; }
+.order-list h4 { display: none !important; }
+.order-list p { margin: 0 !important; font-size: 16px !important; font-weight: 600; color: var(--text) !important; }
+
+/* ---------- НИЖНІЙ ЕКРАН З ФОРМОЮ ---------- */
+.today { margin: 0 !important; padding: 0 !important; background: var(--grad) !important; }
+.marquee-container { overflow: hidden; white-space: nowrap; padding: 11px 0; }
+.marquee-text {
+    display: inline-block; padding-left: 100%;
+    font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px; color: #140E00;
+    animation: marquee 16s linear infinite;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+.offer_section .offer > div[style*="text-align: center"] { color: #fff !important; font-family: 'Outfit', sans-serif; margin: 22px 0 14px !important; font-size: 24px !important; }
+.offer_section .offer > div[style*="text-align: center"] p { font-family: 'Inter', sans-serif; font-size: 15px; color: #A7AFBC; margin: 4px 0 0; }
+.order_form { display: grid; gap: 10px; margin: 0 !important; padding: 0 !important; background: none !important; }
+.order_form .field {
+    display: block; width: 100% !important; box-sizing: border-box; height: auto !important;
+    margin: 0 !important; padding: 16px 16px !important;
+    background: var(--ink-2) !important; color: #fff !important;
+    border: 1px solid var(--ink-3) !important; border-radius: 14px !important;
+    font-family: 'Inter', sans-serif !important; font-size: 16px !important; text-align: left !important;
+    -webkit-appearance: none; appearance: none; box-shadow: none !important;
+}
+.order_form select.field {
+    background-image: linear-gradient(45deg, transparent 50%, var(--amber) 50%), linear-gradient(135deg, var(--amber) 50%, transparent 50%) !important;
+    background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50% !important;
+    background-size: 6px 6px !important; background-repeat: no-repeat !important;
+}
+.order_form .field::placeholder { color: #7D8695; }
+.order_form .field:focus { border-color: var(--amber) !important; outline: none; }
+.order_form .button { margin-top: 4px !important; }
+.offer_section footer { background: none !important; padding: 18px 0 0 !important; }
+.offer_section footer div { color: #7D8695 !important; font-size: 13px !important; }
+.offer_section footer a { color: #A7AFBC !important; }
+
+/* ---------- ЛИПКА ПАНЕЛЬ ---------- */
+.sticky-bottom-bar {
+    position: fixed; bottom: 0; left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    width: 100%; max-width: 480px; box-sizing: border-box;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(14,17,22,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,.08);
+    z-index: 999; opacity: 0; pointer-events: none;
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s;
+}
+.sticky-bottom-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+.sticky-bottom-bar .price-info { color: #fff; }
+.sticky-bottom-bar .main-price { font-size: 24px; font-weight: 800; line-height: 1; }
+.sticky-bottom-bar .stock { margin-top: 4px; font-size: 12px; color: var(--amber); display: flex; align-items: center; gap: 6px; }
+.sticky-bottom-bar .stock::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
+.sticky-bottom-bar .btn-order {
+    background: var(--grad); color: #140E00; text-decoration: none;
+    font-size: 16px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 15px 30px; border-radius: 14px;
+    animation: btnPulse 2.4s infinite;
+}
+</style>
+</head>
+<body style="cursor: default;">
+<div class="wrap">
+
+
+<div class="offer_section offer3">
+<div class="main-title-box">
+    <h1>ПОЛЯРИЗАЦІЙНИЙ КОЗИРОК ДЛЯ АВТО<br><span style="font-size:15px;font-weight:600;">Сонце не сліпить · захист спереду і збоку · без відблисків</span></h1>
+</div>
+
+<section class="offer">
+<video src="images1/main.mp4" poster="images1/main.png" autoplay muted loop playsinline preload="auto"></video>
+<div class="benefits_list clearfix">
+<div class="benefit_item">Доставка по Україні</div>
+<div class="benefit_item">Обмежена пропозиція</div>
+<div class="benefit_item">Оплата при отриманні</div>
+</div>
+<div class="price_block clearfix">
+<div class="price_item old" style="opacity: .6;">
+<div class="text">Звичайна ціна:</div>
+<div class="value">1199 грн</div>
+</div>
+<div class="price_item new">
+<div class="text" style="font-size: 21px; font-weight: 600; text-transform: uppercase; 
+            line-height: 23px;"><span>Ціна сьогодні</span></div>
+<div class="value">799 грн</div>
+</div>
+</div>
+<br/>
+<div class="btn-block">
+<a class="button" href="#order6" style="position: relative;">
+<span class="flex absolute h-10 w-10 top-2 left-7" style="position: absolute; left: 1.75rem; top: 0.5rem; display: flex; height: 2.5rem; width: 2.5rem;">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-200 opacity-75"></span>
+</span>
+            Замовити зі знижкою
+          </a>
+</div>
+</section>
+</div>
+<section class="generate" style="background:#F3F5F7; padding-bottom: 80px;">
+
+<div class="multi-pack-offer">
+    <h2>БЕРЕШ ДВА — ЕКОНОМИШ</h2>
+    <div class="mp-row">
+        <div class="mp-qty">1 шт =</div>
+        <div class="mp-price">799 грн</div>
+    </div>
+    <div class="mp-row highlight">
+        <div class="mp-qty">2 шт =</div>
+        <div class="mp-price">1348 грн</div>
+        <div class="mp-discount">−250 грн</div>
+        <div class="mp-ribbon-wrap"><div class="mp-ribbon">ХІТ</div></div>
+    </div>
+</div>
+
+<div class="benefits-checklist-new">
+    <div class="benefit-item">
+        <div class="benefit-icon">✓</div>
+        <div class="benefit-text">
+            <strong>Сонце не б'є в очі</strong>
+            Зранку і ввечері низьке сонце більше не пробивається під козирок. Не мружитесь і бачите дорогу.
+        </div>
+    </div>
+    <div class="benefit-item">
+        <div class="benefit-icon">✓</div>
+        <div class="benefit-text">
+            <strong>Захист спереду і збоку</strong>
+            Бічна шторка висувається до вікна, а лобове скло лишається закритим. Звичайний козирок так не вміє.
+        </div>
+    </div>
+    <div class="benefit-item">
+        <div class="benefit-icon">✓</div>
+        <div class="benefit-text">
+            <strong>Без сліпучих відблисків</strong>
+            Поляризаційний екран гасить блиск мокрого асфальту, скла і хрому машин попереду.
+        </div>
+    </div>
+    <div class="benefit-item">
+        <div class="benefit-icon">✓</div>
+        <div class="benefit-text">
+            <strong>Ставиться за 1 хвилину</strong>
+            Два ремені на липучці, без інструментів. Підходить для більшості авто.
+        </div>
+    </div>
+</div>
+
+<img src="images1/q1.png" class="img-text" alt="">
+
+<div class="text-bg">
+    <h3>Поляризаційний козирок 2 в 1</h3>
+    <p><strong>Їдете проти сонця — і бачите дорогу</strong><br/><br/>
+    Кріпиться на ваш штатний козирок і додає дві зони захисту: бічну шторку та поляризаційний екран.<br/><br/>
+    Корпус з еко-шкіри, на ньому кишеня на блискавці для документів і карток.</p>
+</div>
+
+<section class="b1">
+<div class="slider-photo">
+<div class="item">
+<img class="img-text" src="images1/q2.png"/>
+</div>
+</div>
+</section>
+
+<div class="text-bg">
+    <h3>Знайома ситуація?</h3>
+    <p>Зранку або ввечері сонце світить прямо в очі. Опускаєте козирок — воно пробивається під ним. Повертаєте до бічного вікна — відкривається лобове скло. Їдете, мружачись, майже наосліп.<br/><br/>
+    Цей козирок закриває і перед, і бік одночасно, а поляризаційний екран прибирає сліпуче світло.</p>
+</div>
+
+<section class="b1">
+<div class="slider-photo">
+<div class="item">
+<img class="img-text" src="images1/q3.png"/>
+</div>
+</div>
+</section>
+
+<div class="text-bg">
+    <h3>Чим відрізняється від звичайного козирка</h3>
+    <p>Штатний козирок закриває тільки одну сторону, низьке сонце проходить під ним, а від відблисків він не допомагає взагалі.<br/><br/>
+    Тут екран опускається нижче, шторка закриває бічне вікно, а поляризація працює як сонцезахисні окуляри для всього лобового скла.</p>
+</div>
+
+
+
+<section class="b1">
+<div class="slider-photo">
+<div class="item">
+<img class="img-text" src="images1/q4.png"/>
+</div>
+</div>
+</section>
+
+<div class="text-bg">
+    <h3>Що входить і коли рятує</h3>
+    <p><strong>1. Корпус з кріпленням</strong> — фіксується на штатний козирок двома ременями на липучці.<br/><br/>
+    <strong>2. Бічна шторка</strong> — висувається на 27 см і закриває сонце збоку.<br/><br/>
+    <strong>3. Поляризаційний екран</strong> — опускається під козирок і гасить відблиски.<br/><br/>
+    <strong>Коли реально рятує:</strong> дорога на роботу проти ранкового сонця; дорога додому на заході; мокрий асфальт після дощу; довгі поїздки трасою.</p>
+</div>
+<img src="images1/q5.png" class="img-text" alt="">
+<div class="text-bg">
+    <h3>Характеристики</h3>
+    <p><strong>Корпус:</strong> 31 × 13,5 см, еко-шкіра<br/>
+    <strong>Бічна шторка:</strong> 27 × 11 см<br/>
+    <strong>Поляризаційний екран:</strong> 27 × 12 см<br/>
+    <strong>Кріплення:</strong> 2 ремені на липучці, обрізаються під козирок<br/>
+    <strong>Кишеня:</strong> на блискавці<br/>
+    <strong>Підходить:</strong> легкові авто, SUV, вантажівки<br/>
+    <strong>Важливо:</strong> екран для світлого часу доби, вночі його піднімають<br/><br/>
+    <strong>Беріть два</strong> — для водія і пасажира або для другого авто в родині. Другий комплект на 250 грн дешевше.</p>
+</div>
+
+
+
+
+<!-- Відгуки: покладіть скриншоти в папку reviews/ з назвами review1.jpg, review2.jpg ... (до review30, можна .png).
+     Яких файлів немає — ті не показуються. Немає жодного — блок прихований. -->
+<div class="reviews-block" id="reviews" hidden>
+    <h2 class="reviews-title">Відгуки покупців</h2>
+    <div class="reviews-track" id="reviewsTrack"></div>
+    <div class="reviews-hint" id="reviewsHint" hidden>Гортайте →</div>
+</div>
+
+<section class="b1">
+<h2 class="title"><span>Як замовити?</span></h2>
+<ul class="order-list">
+<li>
+<div class="txt">
+<h4>Крок 1:</h4>
+<p>Заповніть форму замовлення</p>
+</div>
+</li>
+<li>
+<div class="txt">
+<h4>Крок 2:</h4>
+<p>Дочекайтесь дзвінка оператора</p>
+</div>
+</li>
+<li>
+<div class="txt">
+<h4>Крок 3:</h4>
+<p>Оплатіть товар після отримання</p>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<div class="offer_section offer3">
+<div class="main-title-box">
+    <h1>ПОЛЯРИЗАЦІЙНИЙ КОЗИРОК ДЛЯ АВТО<br><span style="font-size:15px;font-weight:600;">Сонце не сліпить · захист спереду і збоку · без відблисків</span></h1>
+</div>
+<div class="today">
+<div class="marquee-container">
+<div class="marquee-text">
+            ДРУГИЙ КОЗИРОК — НА 250 ГРН ДЕШЕВШЕ · ОПЛАТА ПРИ ОТРИМАННІ
+          </div>
+</div>
+</div>
+<section class="offer">
+<img alt="" src="images1/main.png"/>
+<div class="benefits_list clearfix">
+<div class="benefit_item">Доставка по Україні</div>
+<div class="benefit_item">Обмежена пропозиція</div>
+<div class="benefit_item">Оплата при отриманні</div>
+</div>
+<div class="price_block clearfix">
+<div class="price_item old" style="opacity: .6;">
+<div class="text">Звичайна ціна:</div>
+<div class="value">1199 грн</div>
+</div>
+<div class="price_item new">
+<div class="text" style="font-size: 21px; font-weight: 600; text-transform: uppercase; 
+            line-height: 23px;"><span>Ціна сьогодні</span></div>
+<div class="value">799 грн</div>
+</div>
+</div>
+<div style="text-align: center; margin: 10px auto; display: block; font-size: 24px; line-height: 26px;     color: black;">
+<strong>Залишіть заявку</strong>
+<p>та отримайте консультацію</p>
+</div>
+<form action="/thanks.html" class="order_form" id="order6" method="POST" name="order" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="order"/>
+<p hidden><label>Не заповнюйте: <input name="bot-field"/></label></p>
+<input type="hidden" name="utm_source"/>
+<input type="hidden" name="utm_medium"/>
+<input type="hidden" name="utm_campaign"/>
+<input type="hidden" name="utm_content"/>
+<input type="hidden" name="utm_term"/>
+<select class="field" name="count">
+    <option value="2;1348">2 шт (вигода 250 грн) - 1348 грн</option>
+    <option value="1;799">1 шт - 799 грн</option>
+</select>
+<input class="field" name="name" placeholder="Введіть Ваше ім'я" type="text" autocomplete="name" required=""/>
+<input class="field" name="phone" placeholder="+38 (0__) ___ __ __" required="" type="tel" inputmode="tel" autocomplete="tel"/>
+<button class="button" style="position: relative;">
+<span class="flex absolute h-10 w-10 top-2 left-7" style="position: absolute; left: 1.75rem; top: 0.5rem; display: flex; height: 2.5rem; width: 2.5rem;">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-200 opacity-75"></span>
+</span>
+            Придбати
+          </button>
+</form>
+<footer >
+<div style="text-align: center; margin: 10px auto; display: block; font-size: 14px; line-height: 26px;     color: black;">
+<a href="politics.html" style="cursor: pointer;color:  #000;" target="_blank">Політика конфіденційності</a><br/>
+            Всі права захищено © 2026          </div>
+</footer>
+</section>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bottom-bar">
+    <div class="price-info">
+        <div class="main-price">799 грн</div>
+        <div class="stock">Другий −250 грн</div>
+    </div>
+    <a href="#order6" class="btn-order">ЗАМОВИТИ</a>
+</div>
+
+<script>
+    // Маска телефону +38 (0XX) XXX XX XX
+    document.querySelectorAll('input[name=phone]').forEach(function (el) {
+        el.addEventListener('input', function () {
+            var d = el.value.replace(/\D/g, '');
+            if (d.indexOf('38') === 0) d = d.slice(2);
+            d = d.slice(0, 10);
+            var out = '+38';
+            if (d.length) out += ' (' + d.slice(0, 3);
+            if (d.length >= 3) out += ')';
+            if (d.length > 3) out += ' ' + d.slice(3, 6);
+            if (d.length > 6) out += ' ' + d.slice(6, 8);
+            if (d.length > 8) out += ' ' + d.slice(8, 10);
+            el.value = out;
+        });
+    });
+
+    // UTM-мітки: з адреси сторінки або збережені раніше (30 днів)
+    (function () {
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+        var params = new URLSearchParams(location.search);
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem('utm') || '{}'); } catch (e) {}
+        if (keys.some(function (k) { return params.get(k); })) {
+            saved = { t: Date.now() };
+            keys.forEach(function (k) { saved[k] = params.get(k) || ''; });
+            try { localStorage.setItem('utm', JSON.stringify(saved)); } catch (e) {}
+        } else if (saved.t && Date.now() - saved.t > 30 * 864e5) {
+            saved = {};
+        }
+        keys.forEach(function (k) {
+            document.querySelectorAll('input[name=' + k + ']').forEach(function (el) { el.value = saved[k] || ''; });
+        });
+    })();
+
+    // Перевірка форми і стан кнопки
+    document.querySelectorAll('form.order_form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+            var name = form.elements.name.value.trim();
+            var phone = form.elements.phone.value.replace(/\D/g, '');
+            if (name.length < 2) { e.preventDefault(); form.elements.name.focus(); return; }
+            if (phone.length < 12) { e.preventDefault(); form.elements.phone.focus(); return; }
+            var btn = form.querySelector('button');
+            btn.textContent = 'Відправка...';
+            btn.style.opacity = '.7';
+            try { localStorage.setItem('lastOrder', form.elements.count.value); } catch (e) {}
+        });
+    });
+
+    // Відгуки зі скриншотів reviews/review1.jpg (або .png) ... review30
+    (function () {
+        var track = document.getElementById('reviewsTrack');
+        var shown = 0;
+        for (var i = 1; i <= 30; i++) {
+            var img = new Image();
+            img.alt = 'Відгук покупця';
+            img.style.order = i;
+            img.dataset.n = i;
+            img.onload = function () {
+                track.appendChild(this);
+                shown++;
+                document.getElementById('reviews').hidden = false;
+                document.getElementById('reviewsHint').hidden = shown < 2;
+            };
+            img.onerror = function () {
+                // немає .jpg — пробуємо .png
+                if (this.src.slice(-4) === '.jpg') this.src = 'reviews/review' + this.dataset.n + '.png';
+            };
+            img.src = 'reviews/review' + i + '.jpg';
+        }
+    })();
+
+    // Sticky bottom bar scroll logic
+    window.addEventListener('scroll', function() {
+        const bar = document.querySelector('.sticky-bottom-bar');
+        const firstScreenHeight = window.innerHeight * 0.8;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollPosition = window.pageYOffset + window.innerHeight;
+        const bottomThreshold = 700; // Distance from bottom to hide the bar
+        
+        if (window.pageYOffset > firstScreenHeight && (scrollHeight - scrollPosition) > bottomThreshold) {
+            bar.classList.add('visible');
+        } else {
+            bar.classList.remove('visible');
+        }
+    });
+</script>
+</div>
+</body>
+</html>

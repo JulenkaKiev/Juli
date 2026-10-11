@@ -1,4 +1,4 @@
-﻿<?php session_start();
+<?php session_start();
 $period_cookie = 2592000; // 30 дней (2592000 секунд)
 
 if($_GET){

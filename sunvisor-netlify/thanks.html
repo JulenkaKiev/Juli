@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>Дякуємо за замовлення!</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1627430141996907');
+fbq('track', 'PageView');
+(function () {
+    var price = 799;
+    try { price = Number((localStorage.getItem('lastOrder') || '1;799').split(';')[1]) || 799; } catch (e) {}
+    fbq('track', 'Lead', { value: price, currency: 'UAH' });
+})();
+</script>
+<!-- End Meta Pixel Code -->
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #0E1116; color: #fff; font-family: 'Inter', -apple-system, Arial, sans-serif; text-align: center; }
+  .box { max-width: 420px; padding: 32px 20px; }
+  .icon { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%;
+          background: linear-gradient(135deg, #FFB020, #FF7A00); color: #140E00;
+          display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 800; }
+  h1 { font-family: 'Outfit', sans-serif; font-size: 30px; margin: 0 0 12px; }
+  p { color: #A7AFBC; font-size: 17px; line-height: 1.6; margin: 0 0 24px; }
+  a { color: #FFB020; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="icon">✓</div>
+  <h1>Дякуємо, заявку прийнято!</h1>
+  <p>Менеджер зателефонує вам найближчим часом, щоб підтвердити замовлення і уточнити доставку.<br/>Оплата при отриманні.</p>
+  <a href="/">← Повернутися на сайт</a>
+</div>
+</body>
+</html>
